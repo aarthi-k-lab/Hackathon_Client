@@ -63,6 +63,73 @@ class Movies extends Component {
     }
   };
 
+  handleDelete = async (deletemovie) => {
+    var result = confirm("Want to delete?");
+    if (result) {
+      let mockapiurl = "http://localhost:3200/api/movies/";
+      let mockapideleteurl = mockapiurl + deletemovie._id;
+      try {
+        const movieResponse = await fetch(mockapideleteurl, {
+          method: "DELETE",
+          body: JSON.stringify(deletemovie),
+          headers: { "Content-type": "application/json;characterset=UTF-8" },
+        });
+        let movie = await movieResponse.json();
+        alert(movie.title + " successfully deleted");
+        const moviesResponse = await fetch(mockapiurl);
+        let movies = await moviesResponse.json();
+        this.setState({ movies });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  handleSave = async (
+    id,
+    cast,
+    title,
+    image,
+    language,
+    genre,
+    director,
+    description,
+    duration,
+    releaseDate,
+    endDate
+  ) => {
+    const newmovie = {
+      title: title,
+      cast: cast,
+      image: image,
+      language: language,
+      genre: genre,
+      director: director,
+      description: description,
+      duration: duration,
+      releaseDate: releaseDate,
+      endDate: endDate,
+    };
+    let mockapiurl = "http://localhost:3200/api/movies/";
+    let mockapiputrurl = mockapiurl + id;
+    try {
+      const movieResponse = await fetch(mockapiputrurl, {
+        method: "PUT",
+        body: JSON.stringify(newmovie),
+        headers: { "Content-type": "application/json;characterset=UTF-8" },
+      });
+      let movie = await movieResponse.json();
+      if (movie.name == "MongoError") {
+        alert("some format error while storing");
+      }
+      const moviesResponse = await fetch(mockapiurl);
+      let movies = await moviesResponse.json();
+      this.setState({ movies });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     return (
       <div className="row">
@@ -86,13 +153,15 @@ class Movies extends Component {
           <></>
         )}
         {this.state.movies.length > 0 ? (
-          <>
-            {this.state.movies.map((movie) => (
-              <div key={movie._id} className="col-sm-4">
-                <Movie movie={movie} />
-              </div>
-            ))}
-          </>
+          this.state.movies.map((movie) => (
+            <div key={movie._id} className="col-sm-4">
+              <Movie
+                movie={movie}
+                onDeleting={this.handleDelete}
+                onSave={this.handleSave}
+              />
+            </div>
+          ))
         ) : (
           <div>Sorry there is no movies at present</div>
         )}
