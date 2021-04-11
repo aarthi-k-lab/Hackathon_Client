@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import NonClient from "./components/nonClient.js";
 import Client from "./components/client.js";
 import "./stylesheet/style.css";
@@ -9,10 +10,12 @@ class App extends Component {
   };
 
   handleLogin = async (emailId, password) => {
-    let mockapiurl = "http://localhost:3200/";
     try {
-      const usersResponse = await fetch(mockapiurl);
-      let users = await usersResponse.json();
+      const api = axios.create({
+        baseURL: `http://immense-sands-26614.herokuapp.com`,
+      });
+      const usersResponse = await api.get("/");
+      let users = await usersResponse.data;
       const user = users.find((user) => {
         return user.email == emailId && user.password == password;
       });
@@ -22,34 +25,36 @@ class App extends Component {
         this.setState({ user });
         this.setState({ userFlag: true });
       }
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
   handleSignUp = async (emailId, pass, userName, phone, role) => {
-    let mockapiurl = "http://localhost:3200/";
-    const user = {
+    const newuser = {
       email: emailId,
       password: pass,
       username: userName,
       phoneNumber: phone,
       role: role,
     };
+    const mockapiurl = "http://immense-sands-26614.herokuapp.com";
     try {
       const userResponse = await fetch(mockapiurl, {
         method: "POST",
-        body: JSON.stringify(user),
+        body: JSON.stringify(newuser),
         headers: { "Content-type": "application/json;characterset=UTF-8" },
       });
       let user = await userResponse.json();
+      console.log(user);
       if (user.name == "MongoError") {
         alert(
           "Only unique emilid must be used and phone numer should be in correct format"
         );
+      } else {
+        this.setState({ user });
+        this.setState({ userFlag: true });
       }
-      this.setState({ user });
-      this.setState({ userFlag: true });
     } catch (error) {
       console.log(error);
     }

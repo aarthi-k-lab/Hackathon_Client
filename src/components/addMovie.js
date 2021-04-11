@@ -160,7 +160,6 @@ class AddMovie extends Component {
                   <input
                     type="date"
                     name="endDate"
-                    required
                     onChange={(event) =>
                       this.setState({ endDate: event.target.value })
                     }

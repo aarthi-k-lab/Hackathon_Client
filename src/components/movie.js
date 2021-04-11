@@ -35,6 +35,22 @@ class Movie extends Component {
     );
     event.preventDefault();
   };
+
+  componentDidMount = async () => {
+    this.setState({
+      cast: this.props.movie.cast,
+      title: this.props.movie.title,
+      image: this.props.movie.image,
+      language: this.props.movie.language,
+      genre: this.props.movie.genre,
+      director: this.props.movie.director,
+      description: this.props.movie.description,
+      duration: this.props.movie.duration,
+      releaseDate: this.props.movie.releaseDate,
+      endDate: this.props.movie.endDate,
+    });
+  };
+
   render() {
     const { movie, onDeleting } = this.props;
     const formattedReleaseDate = moment(movie.releaseDate).format("yyyy-MM-DD");
@@ -121,7 +137,9 @@ class Movie extends Component {
                           required
                           defaultValue={movie.language}
                           onChange={(event) =>
-                            this.setState({ language: event.target.value })
+                            this.setState({
+                              language: event.target.value,
+                            })
                           }
                         />
                       </td>
@@ -149,7 +167,9 @@ class Movie extends Component {
                           required
                           defaultValue={movie.director}
                           onChange={(event) =>
-                            this.setState({ director: event.target.value })
+                            this.setState({
+                              director: event.target.value,
+                            })
                           }
                         />
                       </td>
@@ -163,7 +183,9 @@ class Movie extends Component {
                           required
                           defaultValue={movie.description}
                           onChange={(event) =>
-                            this.setState({ description: event.target.value })
+                            this.setState({
+                              description: event.target.value,
+                            })
                           }
                         />
                       </td>
@@ -177,7 +199,9 @@ class Movie extends Component {
                           required
                           defaultValue={movie.duration}
                           onChange={(event) =>
-                            this.setState({ duration: event.target.value })
+                            this.setState({
+                              duration: event.target.value,
+                            })
                           }
                         />
                       </td>
@@ -191,7 +215,9 @@ class Movie extends Component {
                           required
                           defaultValue={formattedReleaseDate}
                           onChange={(event) =>
-                            this.setState({ releaseDate: event.target.value })
+                            this.setState({
+                              releaseDate: event.target.value,
+                            })
                           }
                         />
                       </td>
@@ -203,7 +229,9 @@ class Movie extends Component {
                           type="date"
                           name="endDate"
                           onChange={(event) =>
-                            this.setState({ endDate: event.target.value })
+                            this.setState({
+                              endDate: event.target.value,
+                            })
                           }
                         />
                       </td>
