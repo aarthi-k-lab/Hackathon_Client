@@ -76,7 +76,6 @@ class Movie extends Component {
                 >
                   Delete
                 </button>
-                <button className="btn btn-primary m-2">View</button>
               </div>
             </Card.Body>
           </Card>
@@ -240,13 +239,17 @@ class Movie extends Component {
                       <td style={{ textAlign: "center" }}>
                         <button type="save">save</button>
                       </td>
-                      <td style={{ textAlign: "center" }}>
-                        <button type="save">cancel</button>
-                      </td>
+                      <td style={{ textAlign: "center" }}></td>
                     </tr>
                   </tbody>
                 </table>
               </form>
+              <button
+                type="save"
+                onClick={() => this.setState({ editFlag: false })}
+              >
+                cancel
+              </button>
             </Card.Body>
           </Card>
         )}
