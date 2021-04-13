@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BookedMovies from "./bookedmovies.js";
+import Reservations from "./reservations.js";
 import Theatres from "./theatres.js";
 import ShowTimes from "./showtimes.js";
 import Users from "./users.js";
@@ -97,7 +97,7 @@ class Admin extends Component {
         ) : this.state.userListFlag == true ? (
           <Users />
         ) : (
-          <BookedMovies />
+          <Reservations />
         )}
       </>
     );

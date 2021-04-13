@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Movie from "./movie.js";
 import AddMovie from "./addMovie.js";
+import axios from "axios";
 class Movies extends Component {
   state = { movies: [{}], addFlag: false };
 
@@ -79,9 +80,40 @@ class Movies extends Component {
         const moviesResponse = await fetch(mockapiurl);
         let movies = await moviesResponse.json();
         this.setState({ movies });
+
+        //Deleting the showtimes also for that particular movie
+        this.deleteShowTime(deletemovie._id);
       } catch (error) {
         console.log(error);
       }
+    }
+  };
+
+  deleteShowTime = async (id) => {
+    let showtimemockapiurl =
+      "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+    try {
+      const showTimeResponse = await fetch(showtimemockapiurl);
+      let showtimes = await showTimeResponse.json();
+      showtimes.map(async (showtime) => {
+        if (showtime.movieId == id) {
+          let mockapideleteurl = showtimemockapiurl + showtime._id;
+          try {
+            const showtimeResponse = await fetch(mockapideleteurl, {
+              method: "DELETE",
+              body: JSON.stringify(showtime),
+              headers: {
+                "Content-type": "application/json;characterset=UTF-8",
+              },
+            });
+            await showtimeResponse.json();
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 

@@ -29,6 +29,37 @@ class Users extends Component {
       const newusersResponse = await api.get("/");
       let newusers = await newusersResponse.data;
       this.setState({ users: newusers });
+
+      //deleting reservations of that user
+      this.deleteReservation(user._id);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  deleteReservation = async (id) => {
+    let reservationmockapiurl =
+      "http://immense-sands-26614.herokuapp.com/api/reservations/";
+    try {
+      const reservationResponse = await fetch(reservationmockapiurl);
+      let reservations = await reservationResponse.json();
+      reservations.map(async (reservation) => {
+        if (reservation.userId == id) {
+          let mockapideleteurl = reservationmockapiurl + reservation._id;
+          try {
+            const reservationResponse = await fetch(mockapideleteurl, {
+              method: "DELETE",
+              body: JSON.stringify(reservation),
+              headers: {
+                "Content-type": "application/json;characterset=UTF-8",
+              },
+            });
+            await reservationResponse.json();
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      });
     } catch (err) {
       console.log(err);
     }

@@ -57,11 +57,41 @@ class ShowTimes extends Component {
         await showtimeResponse.json();
         alert("Show time of successfully deleted");
         const newShowTimes = await (await fetch(mockapiurl)).json();
-        // let theatres = await theatreResponse.json();
         this.setState({ showtimes: newShowTimes });
+
+        //delete reservations on this showtime
+        this.deleteReservation(deleteShowtime._id);
       } catch (error) {
         console.log(error);
       }
+    }
+  };
+
+  deleteReservation = async (id) => {
+    let reservationmockapiurl =
+      "http://immense-sands-26614.herokuapp.com/api/reservations/";
+    try {
+      const reservationResponse = await fetch(reservationmockapiurl);
+      let reservations = await reservationResponse.json();
+      reservations.map(async (reservation) => {
+        if (reservation.showtimeId == id) {
+          let mockapideleteurl = reservationmockapiurl + reservation._id;
+          try {
+            const reservationResponse = await fetch(mockapideleteurl, {
+              method: "DELETE",
+              body: JSON.stringify(reservation),
+              headers: {
+                "Content-type": "application/json;characterset=UTF-8",
+              },
+            });
+            await reservationResponse.json();
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 

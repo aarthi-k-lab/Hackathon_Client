@@ -66,9 +66,40 @@ class Theatres extends Component {
         const newTheatres = await (await fetch(mockapiurl)).json();
         // let theatres = await theatreResponse.json();
         this.setState({ theatres: newTheatres });
+
+        //Deleting showtime
+        this.deleteShowTime(deleteTheatre._id);
       } catch (error) {
         console.log(error);
       }
+    }
+  };
+
+  deleteShowTime = async (id) => {
+    let showtimemockapiurl =
+      "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+    try {
+      const showTimeResponse = await fetch(showtimemockapiurl);
+      let showtimes = await showTimeResponse.json();
+      showtimes.map(async (showtime) => {
+        if (showtime.cinemaId == id) {
+          let mockapideleteurl = showtimemockapiurl + showtime._id;
+          try {
+            const showtimeResponse = await fetch(mockapideleteurl, {
+              method: "DELETE",
+              body: JSON.stringify(showtime),
+              headers: {
+                "Content-type": "application/json;characterset=UTF-8",
+              },
+            });
+            await showtimeResponse.json();
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
