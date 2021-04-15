@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import moment from "moment";
+
 class Seat extends Component {
   state = { reservations: [{}], keys: [], count: 0, seatsbooked: [] };
 
@@ -12,10 +14,12 @@ class Seat extends Component {
 
       let seatsbooked = [];
       reservations.map((reservation) => {
+        let date = moment(reservation.date).format("YYYY-MM-DD");
         if (
           reservation.cinemaId == this.props.showtime.cinemaId &&
           reservation.movieId == this.props.showtime.movieId &&
-          reservation.showtimeId == this.props.showtime._id
+          reservation.showtimeId == this.props.showtime._id &&
+          date == this.props.bookDate
         ) {
           reservation.seats.map((seat) => {
             seatsbooked = [...seatsbooked, seat];
@@ -33,7 +37,7 @@ class Seat extends Component {
   };
 
   render() {
-    const { seat, onSelect, index1, index2, showtime } = this.props;
+    const { seat, onSelect, index1, index2, showtime, bookDate } = this.props;
     return (
       <>
         {this.state.keys.map((key) => {

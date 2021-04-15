@@ -191,6 +191,7 @@ class Booking extends Component {
                             index1={index1}
                             index2={index2}
                             showtime={showtime}
+                            bookDate={bookDate}
                           ></Seat>
                         );
                       })}
