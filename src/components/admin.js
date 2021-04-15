@@ -4,15 +4,18 @@ import Theatres from "./theatres.js";
 import ShowTimes from "./showtimes.js";
 import Users from "./users.js";
 import Movies from "./movies.js";
+import Guest from "./guest.js";
 class Admin extends Component {
   state = {
-    movieListFlag: true,
+    bookmovieflag: true,
+    movieListFlag: false,
     theatreListFlag: false,
     showTimeListFlag: false,
     userListFlag: false,
     bookedMoviesListFlag: false,
   };
   render() {
+    const { user } = this.props;
     return (
       <>
         <div className="admin_navbar">
@@ -20,6 +23,23 @@ class Admin extends Component {
             className="btn btn-primary movieListBtn"
             onClick={() => {
               this.setState({
+                bookmovieflag: true,
+                movieListFlag: false,
+                theatreListFlag: false,
+                showTimeListFlag: false,
+                userListFlag: false,
+                bookedMoviesListFlag: false,
+              });
+            }}
+          >
+            Book Movie
+          </button>
+
+          <button
+            className="btn btn-primary movieListBtn"
+            onClick={() => {
+              this.setState({
+                bookmovieflag: false,
                 movieListFlag: true,
                 theatreListFlag: false,
                 showTimeListFlag: false,
@@ -34,6 +54,7 @@ class Admin extends Component {
             className="btn btn-primary theatreListBtn"
             onClick={() => {
               this.setState({
+                bookmovieflag: false,
                 movieListFlag: false,
                 theatreListFlag: true,
                 showTimeListFlag: false,
@@ -48,6 +69,7 @@ class Admin extends Component {
             className="btn btn-primary showTimesBtn"
             onClick={() => {
               this.setState({
+                bookmovieflag: false,
                 movieListFlag: false,
                 theatreListFlag: false,
                 showTimeListFlag: true,
@@ -62,6 +84,7 @@ class Admin extends Component {
             className="btn btn-primary userListBtn"
             onClick={() => {
               this.setState({
+                bookmovieflag: false,
                 movieListFlag: false,
                 theatreListFlag: false,
                 showTimeListFlag: false,
@@ -76,6 +99,7 @@ class Admin extends Component {
             className="btn btn-primary bookedMoviesBtn"
             onClick={() => {
               this.setState({
+                bookmovieflag: false,
                 movieListFlag: false,
                 theatreListFlag: false,
                 showTimeListFlag: false,
@@ -87,8 +111,9 @@ class Admin extends Component {
             Booked Movies
           </button>
         </div>
-
-        {this.state.movieListFlag == true ? (
+        {this.state.bookmovieflag == true ? (
+          <Guest user={user} />
+        ) : this.state.movieListFlag == true ? (
           <Movies />
         ) : this.state.theatreListFlag == true ? (
           <Theatres />

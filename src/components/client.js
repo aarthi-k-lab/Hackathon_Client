@@ -18,7 +18,7 @@ class Client extends Component {
             LogOut
           </button>
         </div>
-        {user.role == "admin" ? <Admin /> : <Guest user={user} />}
+        {user.role == "admin" ? <Admin user={user} /> : <Guest user={user} />}
       </>
     );
   }
