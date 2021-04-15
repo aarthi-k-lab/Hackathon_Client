@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Admin from "./admin.js";
 import Guest from "./guest.js";
+
 class Client extends Component {
   state = {
     movie: {},
@@ -17,7 +18,7 @@ class Client extends Component {
             LogOut
           </button>
         </div>
-        {user.role == "admin" ? <Admin /> : <Guest />}
+        {user.role == "admin" ? <Admin /> : <Guest user={user} />}
       </>
     );
   }

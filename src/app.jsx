@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import NonClient from "./components/nonClient.js";
 import Client from "./components/client.js";
-import "./stylesheet/style.css";
+
 class App extends Component {
   state = {
     user: {},

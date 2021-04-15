@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Reservation from "./reservation.js";
-import "../stylesheet/style.css";
 import axios from "axios";
 class Reservations extends Component {
   state = { reservations: [{}] };

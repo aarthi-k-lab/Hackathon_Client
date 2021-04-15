@@ -22,8 +22,13 @@ class Guest extends Component {
     this.setState({ movie });
   };
 
+  booked = () => {
+    this.setState({ detailFlag: false });
+  };
+
   handleMovie = () => this.setState({ detailFlag: false });
   render() {
+    const { user } = this.props;
     return (
       <div className="BookATick ">
         <h1>Book A Tick</h1>
@@ -43,7 +48,12 @@ class Guest extends Component {
             )}
           </div>
         ) : (
-          <MovieDetails movie={this.state.movie} onView={this.handleMovie} />
+          <MovieDetails
+            movie={this.state.movie}
+            onView={this.handleMovie}
+            booked={this.booked}
+            user={user}
+          />
         )}
       </div>
     );
