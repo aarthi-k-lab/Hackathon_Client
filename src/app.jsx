@@ -12,7 +12,7 @@ class App extends Component {
   handleLogin = async (emailId, password) => {
     try {
       const api = axios.create({
-        baseURL: `http://immense-sands-26614.herokuapp.com`,
+        baseURL: `https://immense-sands-26614.herokuapp.com`,
       });
       const usersResponse = await api.get("/");
       let users = await usersResponse.data;
@@ -38,7 +38,7 @@ class App extends Component {
       phoneNumber: phone,
       role: role,
     };
-    const mockapiurl = "http://immense-sands-26614.herokuapp.com";
+    const mockapiurl = "https://immense-sands-26614.herokuapp.com";
     try {
       const userResponse = await fetch(mockapiurl, {
         method: "POST",
