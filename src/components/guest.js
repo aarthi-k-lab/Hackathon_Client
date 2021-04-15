@@ -6,7 +6,7 @@ class Guest extends Component {
   state = { detailFlag: false, movies: [{}], movie: {} };
 
   componentDidMount = async () => {
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/movies/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/movies/";
     try {
       const moviesResponse = await fetch(mockapiurl);
       let movies = await moviesResponse.json();

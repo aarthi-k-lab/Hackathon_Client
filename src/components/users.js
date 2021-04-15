@@ -8,7 +8,7 @@ class Users extends Component {
   componentDidMount = async (req, res) => {
     try {
       const api = axios.create({
-        baseURL: `http://immense-sands-26614.herokuapp.com/`,
+        baseURL: `https://immense-sands-26614.herokuapp.com/`,
       });
       const usersResponse = await api.get("/");
       let users = await usersResponse.data;
@@ -21,7 +21,7 @@ class Users extends Component {
   handleDelete = async (user) => {
     try {
       const api = axios.create({
-        baseURL: `http://immense-sands-26614.herokuapp.com/`,
+        baseURL: `https://immense-sands-26614.herokuapp.com/`,
       });
       const usersResponse = await api.delete("/" + user._id, user);
       let users = await usersResponse.data;
@@ -39,7 +39,7 @@ class Users extends Component {
 
   deleteReservation = async (id) => {
     let reservationmockapiurl =
-      "http://immense-sands-26614.herokuapp.com/api/reservations/";
+      "https://immense-sands-26614.herokuapp.com/api/reservations/";
     try {
       const reservationResponse = await fetch(reservationmockapiurl);
       let reservations = await reservationResponse.json();

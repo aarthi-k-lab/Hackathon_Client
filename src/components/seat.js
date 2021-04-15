@@ -4,7 +4,7 @@ class Seat extends Component {
 
   componentDidMount = async () => {
     let mockapiurl =
-      "http://immense-sands-26614.herokuapp.com/api/reservations";
+      "https://immense-sands-26614.herokuapp.com/api/reservations";
     try {
       const reservationResponse = await fetch(mockapiurl);
       let reservations = await reservationResponse.json();

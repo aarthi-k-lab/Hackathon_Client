@@ -21,7 +21,7 @@ class MovieDetails extends Component {
       alert("Please enter date for bookin");
     } else {
       let mockapiurl =
-        "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+        "https://immense-sands-26614.herokuapp.com/api/showtimes/";
       try {
         const showTimeResponse = await fetch(mockapiurl);
         let showTimes = await showTimeResponse.json();
@@ -76,7 +76,7 @@ class MovieDetails extends Component {
 
   getTheatre = async (id) => {
     let mockapiurl =
-      "http://immense-sands-26614.herokuapp.com/api/theatres/" + id;
+      "https://immense-sands-26614.herokuapp.com/api/theatres/" + id;
     try {
       const theatreResponse = await fetch(mockapiurl);
       let theatre = await theatreResponse.json();

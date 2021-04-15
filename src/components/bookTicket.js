@@ -5,7 +5,7 @@ class BookTickets extends Component {
   state = { theatreMap: {} };
 
   componentDidMount = async () => {
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/theatres/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/theatres/";
     try {
       const theatresResponse = await fetch(mockapiurl);
       let theatres = await theatresResponse.json();

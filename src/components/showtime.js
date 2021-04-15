@@ -23,7 +23,7 @@ class ShowTime extends Component {
     });
 
     let mockapitheatreurl =
-      "http://immense-sands-26614.herokuapp.com/api/theatres/" +
+      "https://immense-sands-26614.herokuapp.com/api/theatres/" +
       this.props.showtime.cinemaId;
     try {
       const theatresResponse = await fetch(mockapitheatreurl);
@@ -34,7 +34,7 @@ class ShowTime extends Component {
     }
 
     let mockapimovieurl =
-      "http://immense-sands-26614.herokuapp.com/api/movies/" +
+      "https://immense-sands-26614.herokuapp.com/api/movies/" +
       this.state.movieId;
     try {
       const moviesResponse = await fetch(mockapimovieurl);

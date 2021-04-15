@@ -5,7 +5,7 @@ class ShowTimes extends Component {
   state = { showtimes: [{}], addFlag: false };
 
   async componentDidMount() {
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/showtimes/";
     try {
       const showTimeResponse = await fetch(mockapiurl);
       let showtimes = await showTimeResponse.json();
@@ -23,7 +23,7 @@ class ShowTimes extends Component {
       movieId: movieId,
       cinemaId: cinemaId,
     };
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/showtimes/";
     try {
       const showTimeResponse = await fetch(mockapiurl, {
         method: "POST",
@@ -46,7 +46,7 @@ class ShowTimes extends Component {
     var result = confirm("Want to delete?");
     if (result) {
       let mockapiurl =
-        "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+        "https://immense-sands-26614.herokuapp.com/api/showtimes/";
       let mockapideleteurl = mockapiurl + deleteShowtime._id;
       try {
         const showtimeResponse = await fetch(mockapideleteurl, {
@@ -69,7 +69,7 @@ class ShowTimes extends Component {
 
   deleteReservation = async (id) => {
     let reservationmockapiurl =
-      "http://immense-sands-26614.herokuapp.com/api/reservations/";
+      "https://immense-sands-26614.herokuapp.com/api/reservations/";
     try {
       const reservationResponse = await fetch(reservationmockapiurl);
       let reservations = await reservationResponse.json();
@@ -103,7 +103,7 @@ class ShowTimes extends Component {
       movieId: movieId,
       cinemaId: cinemaId,
     };
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/showtimes/";
     let mockapiputrurl = mockapiurl + id;
     try {
       const showtimeResponse = await fetch(mockapiputrurl, {

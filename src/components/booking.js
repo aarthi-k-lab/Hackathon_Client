@@ -28,7 +28,7 @@ class Booking extends Component {
       seatsAvailable: seatsAvailable,
       image: image,
     };
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/theatres/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/theatres/";
     let mockapiputrurl = mockapiurl + id;
     try {
       const theatreResponse = await fetch(mockapiputrurl, {

@@ -5,7 +5,7 @@ class Theatres extends Component {
   state = { theatres: [{}], addFlag: false };
 
   async componentDidMount() {
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/theatres/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/theatres/";
     try {
       const theatresResponse = await fetch(mockapiurl);
       let theatres = await theatresResponse.json();
@@ -31,7 +31,7 @@ class Theatres extends Component {
       seatsAvailable: seatsAvailable,
       image: image,
     };
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/theatres/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/theatres/";
     try {
       const theatreResponse = await fetch(mockapiurl, {
         method: "POST",
@@ -53,7 +53,8 @@ class Theatres extends Component {
   handleDelete = async (deleteTheatre) => {
     var result = confirm("Want to delete?");
     if (result) {
-      let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/theatres/";
+      let mockapiurl =
+        "https://immense-sands-26614.herokuapp.com/api/theatres/";
       let mockapideleteurl = mockapiurl + deleteTheatre._id;
       try {
         const theatreResponse = await fetch(mockapideleteurl, {
@@ -77,7 +78,7 @@ class Theatres extends Component {
 
   deleteShowTime = async (id) => {
     let showtimemockapiurl =
-      "http://immense-sands-26614.herokuapp.com/api/showtimes/";
+      "https://immense-sands-26614.herokuapp.com/api/showtimes/";
     try {
       const showTimeResponse = await fetch(showtimemockapiurl);
       let showtimes = await showTimeResponse.json();
@@ -120,7 +121,7 @@ class Theatres extends Component {
       seatsAvailable: seatsAvailable,
       image: image,
     };
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/theatres/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/theatres/";
     let mockapiputrurl = mockapiurl + id;
     try {
       const theatreResponse = await fetch(mockapiputrurl, {

@@ -8,7 +8,7 @@ class Reservations extends Component {
   componentDidMount = async (req, res) => {
     try {
       const api = axios.create({
-        baseURL: `http://immense-sands-26614.herokuapp.com/api/reservations`,
+        baseURL: `https://immense-sands-26614.herokuapp.com/api/reservations`,
       });
       const reservationResponse = await api.get("/");
       let reservations = await reservationResponse.data;

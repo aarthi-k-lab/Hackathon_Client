@@ -6,7 +6,7 @@ class Reservation extends Component {
 
   componentDidMount = async () => {
     let mockapitheatreurl =
-      "http://immense-sands-26614.herokuapp.com/api/theatres/" +
+      "https://immense-sands-26614.herokuapp.com/api/theatres/" +
       this.props.reservation.cinemaId;
     try {
       const theatresResponse = await fetch(mockapitheatreurl);
@@ -17,7 +17,7 @@ class Reservation extends Component {
     }
 
     let mockapimovieurl =
-      "http://immense-sands-26614.herokuapp.com/api/movies/" +
+      "https://immense-sands-26614.herokuapp.com/api/movies/" +
       this.props.reservation.movieId;
     try {
       const moviesResponse = await fetch(mockapimovieurl);
@@ -28,7 +28,7 @@ class Reservation extends Component {
     }
 
     let mockapiuserurl =
-      "http://immense-sands-26614.herokuapp.com/" +
+      "https://immense-sands-26614.herokuapp.com/" +
       this.props.reservation.userId;
     try {
       const userResponse = await fetch(mockapiuserurl);

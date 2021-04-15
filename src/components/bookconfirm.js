@@ -4,7 +4,7 @@ class BookingConfirm extends Component {
 
   componentDidMount = async () => {
     let mockapiurl =
-      "http://immense-sands-26614.herokuapp.com/api/theatres/" +
+      "https://immense-sands-26614.herokuapp.com/api/theatres/" +
       this.props.showtime.cinemaId;
     try {
       const theatreResponse = await fetch(mockapiurl);
@@ -14,7 +14,7 @@ class BookingConfirm extends Component {
       console.log(error);
     }
     let mockapimovieurl =
-      "http://immense-sands-26614.herokuapp.com/api/movies/" +
+      "https://immense-sands-26614.herokuapp.com/api/movies/" +
       this.props.showtime.movieId;
     try {
       const movieResponse = await fetch(mockapimovieurl);
@@ -42,7 +42,7 @@ class BookingConfirm extends Component {
       seatsAvailable: seatsAvailable,
       image: image,
     };
-    let mockapiurl = "http://immense-sands-26614.herokuapp.com/api/theatres/";
+    let mockapiurl = "https://immense-sands-26614.herokuapp.com/api/theatres/";
     let mockapiputrurl = mockapiurl + id;
     try {
       const theatreResponse = await fetch(mockapiputrurl, {
@@ -129,7 +129,7 @@ class BookingConfirm extends Component {
       userId: userId,
     };
     let mockapiurl =
-      "http://immense-sands-26614.herokuapp.com/api/reservations";
+      "https://immense-sands-26614.herokuapp.com/api/reservations";
     try {
       const resevationResponse = await fetch(mockapiurl, {
         method: "POST",
