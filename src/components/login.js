@@ -10,37 +10,54 @@ class LoginForm extends Component {
   render() {
     return (
       <>
-        <form className="loginUser" onSubmit={this.onTrigger}>
-          <div className="loginForm">
-            <div className="userEmailId">
-              <label htmlFor="email">User Email</label>
-              <br />
-              <input
-                name="email"
-                type="email"
-                id="email"
-                placeholder="example@mail.com"
-                required
-                onChange={(event) =>
-                  this.setState({ email: event.target.value })
-                }
-              />
+        <form className="container-fluid loginUser" onSubmit={this.onTrigger}>
+          <div className="container-fluid loginForm">
+            <div className="row">
+              <div className="userEmailId col-6">
+                <label htmlFor="email">User Email</label>
+              </div>
+
+              <div className="col-6">
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  placeholder="example@mail.com"
+                  required
+                  onChange={(event) =>
+                    this.setState({ email: event.target.value })
+                  }
+                />
+              </div>
             </div>
-            <div className="userPassword">
-              <label htmlFor="password">Password</label>
-              <br />
-              <input
-                name="password"
-                type="password"
-                id="password"
-                required
-                minLength="7"
-                onChange={(event) =>
-                  this.setState({ password: event.target.value })
-                }
-              />
+            <br></br>
+            <div className="row">
+              <div className=" userPassword col-6">
+                <label htmlFor="password">Password</label>
+              </div>
+              <div className="col-6">
+                <input
+                  name="password"
+                  type="password"
+                  id="password"
+                  required
+                  minLength="7"
+                  onChange={(event) =>
+                    this.setState({ password: event.target.value })
+                  }
+                />
+              </div>
             </div>
-            <button type="submit">Login</button>
+            <br></br>
+            <button
+              className="btn btn-info btn-outline-light btn-lg"
+              type="submit"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+            >
+              Login
+            </button>
           </div>
         </form>
       </>

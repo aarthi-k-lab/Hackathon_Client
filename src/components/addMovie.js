@@ -32,11 +32,12 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <div className="addMovie">
+      <div className="addMovie" style={{ padding: "5px" }}>
         <h1 className="addMovie">Add Movie</h1>
         <form className="addMovieForm" onSubmit={this.onTrigger}>
-          <table>
+          <table style={{ borderCollapse: "collapse" }}>
             <tbody>
+              <br></br>
               <tr>
                 <td>cast</td>
                 <td>
@@ -51,6 +52,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>Title</td>
                 <td>
@@ -64,6 +66,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>Image</td>
                 <td>
@@ -76,6 +79,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>Language</td>
                 <td>
@@ -89,6 +93,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>Genre</td>
                 <td>
@@ -102,6 +107,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>Director</td>
                 <td>
@@ -115,6 +121,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>Description</td>
                 <td>
@@ -128,6 +135,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>Duration</td>
                 <td>
@@ -141,6 +149,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>ReleaseDate</td>
                 <td>
@@ -154,6 +163,7 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>EndDate</td>
                 <td>
@@ -166,11 +176,21 @@ class AddMovie extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td colSpan="2" style={{ textAlign: "center" }}>
-                  <button type="submit">save</button>
+                  <button
+                    className="btn btn-info btn-lg btn-outline-light"
+                    data-toggle="button"
+                    aria-pressed="false"
+                    autocomplete="off"
+                    type="submit"
+                  >
+                    save
+                  </button>
                 </td>
               </tr>
+              <br></br>
             </tbody>
           </table>
         </form>

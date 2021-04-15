@@ -33,13 +33,27 @@ class Reservations extends Component {
         <table style={{ borderCollapse: "collapse" }}>
           <thead>
             <tr>
-              <th scope="col">Username</th>
-              <th scope="col">Movie</th>
-              <th scope="col">Theatre</th>
-              <th scope="col">date(yyyy-MM-DD)</th>
-              <th scope="col">slot</th>
-              <th scope="col">Seats</th>
-              <th scope="col">total paid</th>
+              <th style={{ color: "white" }} scope="col">
+                Username
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                Movie
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                Theatre
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                date(yyyy-MM-DD)
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                slot
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                Seats
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                total paid
+              </th>
             </tr>
           </thead>
           <tbody>

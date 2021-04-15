@@ -18,98 +18,131 @@ class Admin extends Component {
     const { user } = this.props;
     return (
       <>
-        <div className="admin_navbar">
-          <button
-            className="btn btn-primary movieListBtn"
-            onClick={() => {
-              this.setState({
-                bookmovieflag: true,
-                movieListFlag: false,
-                theatreListFlag: false,
-                showTimeListFlag: false,
-                userListFlag: false,
-                bookedMoviesListFlag: false,
-              });
-            }}
-          >
-            Book Movie
-          </button>
-
-          <button
-            className="btn btn-primary movieListBtn"
-            onClick={() => {
-              this.setState({
-                bookmovieflag: false,
-                movieListFlag: true,
-                theatreListFlag: false,
-                showTimeListFlag: false,
-                userListFlag: false,
-                bookedMoviesListFlag: false,
-              });
-            }}
-          >
-            Movie List
-          </button>
-          <button
-            className="btn btn-primary theatreListBtn"
-            onClick={() => {
-              this.setState({
-                bookmovieflag: false,
-                movieListFlag: false,
-                theatreListFlag: true,
-                showTimeListFlag: false,
-                userListFlag: false,
-                bookedMoviesListFlag: false,
-              });
-            }}
-          >
-            Theatre List
-          </button>
-          <button
-            className="btn btn-primary showTimesBtn"
-            onClick={() => {
-              this.setState({
-                bookmovieflag: false,
-                movieListFlag: false,
-                theatreListFlag: false,
-                showTimeListFlag: true,
-                userListFlag: false,
-                bookedMoviesListFlag: false,
-              });
-            }}
-          >
-            Show Time List
-          </button>
-          <button
-            className="btn btn-primary userListBtn"
-            onClick={() => {
-              this.setState({
-                bookmovieflag: false,
-                movieListFlag: false,
-                theatreListFlag: false,
-                showTimeListFlag: false,
-                userListFlag: true,
-                bookedMoviesListFlag: false,
-              });
-            }}
-          >
-            User List
-          </button>
-          <button
-            className="btn btn-primary bookedMoviesBtn"
-            onClick={() => {
-              this.setState({
-                bookmovieflag: false,
-                movieListFlag: false,
-                theatreListFlag: false,
-                showTimeListFlag: false,
-                userListFlag: false,
-                bookedMoviesListFlag: true,
-              });
-            }}
-          >
-            Booked Movies
-          </button>
+        <br></br>
+        <div
+          className="row admin_navbar"
+          style={{ border: "1px solid #242333", backgroundColor: "#17a2b8" }}
+        >
+          <div className="col-2">
+            <button
+              className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+              onClick={() => {
+                this.setState({
+                  bookmovieflag: true,
+                  movieListFlag: false,
+                  theatreListFlag: false,
+                  showTimeListFlag: false,
+                  userListFlag: false,
+                  bookedMoviesListFlag: false,
+                });
+              }}
+            >
+              Book Movie
+            </button>
+          </div>
+          <div className="col-2">
+            <button
+              className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+              onClick={() => {
+                this.setState({
+                  bookmovieflag: false,
+                  movieListFlag: true,
+                  theatreListFlag: false,
+                  showTimeListFlag: false,
+                  userListFlag: false,
+                  bookedMoviesListFlag: false,
+                });
+              }}
+            >
+              Movie List
+            </button>
+          </div>
+          <div className="col-2">
+            <button
+              className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+              onClick={() => {
+                this.setState({
+                  bookmovieflag: false,
+                  movieListFlag: false,
+                  theatreListFlag: true,
+                  showTimeListFlag: false,
+                  userListFlag: false,
+                  bookedMoviesListFlag: false,
+                });
+              }}
+            >
+              Theatre List
+            </button>
+          </div>
+          <div className="col-2">
+            <button
+              className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+              onClick={() => {
+                this.setState({
+                  bookmovieflag: false,
+                  movieListFlag: false,
+                  theatreListFlag: false,
+                  showTimeListFlag: true,
+                  userListFlag: false,
+                  bookedMoviesListFlag: false,
+                });
+              }}
+            >
+              Show Time List
+            </button>
+          </div>
+          <div className="col-2">
+            <button
+              className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+              onClick={() => {
+                this.setState({
+                  bookmovieflag: false,
+                  movieListFlag: false,
+                  theatreListFlag: false,
+                  showTimeListFlag: false,
+                  userListFlag: true,
+                  bookedMoviesListFlag: false,
+                });
+              }}
+            >
+              User List
+            </button>
+          </div>
+          <div className="col-2">
+            <button
+              className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+              onClick={() => {
+                this.setState({
+                  bookmovieflag: false,
+                  movieListFlag: false,
+                  theatreListFlag: false,
+                  showTimeListFlag: false,
+                  userListFlag: false,
+                  bookedMoviesListFlag: true,
+                });
+              }}
+            >
+              Booked Movies
+            </button>
+          </div>
         </div>
         {this.state.bookmovieflag == true ? (
           <Guest user={user} />

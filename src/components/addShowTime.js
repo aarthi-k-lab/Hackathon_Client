@@ -22,11 +22,12 @@ class AddTheatre extends Component {
 
   render() {
     return (
-      <div className="addShowTimes">
+      <div className="addShowTimes" style={{ padding: "5px" }}>
         <h1 className="addShowTime">Add ShowTime</h1>
         <form className="addShowTimeForm" onSubmit={this.onTrigger}>
-          <table>
+          <table style={{ borderCollapse: "collapse" }}>
             <tbody>
+              <br></br>
               <tr>
                 <td>movieId</td>
                 <td>
@@ -40,6 +41,7 @@ class AddTheatre extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>cinemaId</td>
                 <td>
@@ -53,6 +55,7 @@ class AddTheatre extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>startAt</td>
                 <td>
@@ -65,6 +68,7 @@ class AddTheatre extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>startDate</td>
                 <td>
@@ -78,6 +82,7 @@ class AddTheatre extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td>endDate</td>
                 <td>
@@ -91,9 +96,18 @@ class AddTheatre extends Component {
                   />
                 </td>
               </tr>
+              <br></br>
               <tr>
                 <td colSpan="2" style={{ textAlign: "center" }}>
-                  <button type="submit">save</button>
+                  <button
+                    type="submit"
+                    className="btn btn-info btn-lg btn-outline-light"
+                    data-toggle="button"
+                    aria-pressed="false"
+                    autocomplete="off"
+                  >
+                    save
+                  </button>
                 </td>
               </tr>
             </tbody>

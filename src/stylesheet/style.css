@@ -2,6 +2,14 @@
 
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
 
+body {
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  background-color: #242333;
+  color: #fff;
+  margin: 0;
+}
+
 .bookBody {
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;

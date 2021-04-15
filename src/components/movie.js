@@ -60,18 +60,29 @@ class Movie extends Component {
           <Card className="m-3">
             <img src={movie.image} alt={movie.title} height="300px" />
             <Card.Body>
-              <Card.Title style={{ color: "blue" }}>{movie.title}</Card.Title>
-              <Card.Title>{movie.genre}</Card.Title>
-              <Card.Text>{movie.description}</Card.Text>
+              <Card.Title style={{ color: "blue" }}>
+                <b>{movie.title}</b>
+              </Card.Title>
+              <Card.Title style={{ color: "black" }}>
+                <b>{movie.genre}</b>
+              </Card.Title>
+              <Card.Text style={{ color: "black" }}>
+                {movie.description}
+              </Card.Text>
               <div>
                 <button
-                  className="btn btn-primary m-2"
+                  className="btn btn-warning btn-lg"
+                  aria-pressed="false"
+                  autocomplete="off"
                   onClick={() => this.setState({ editFlag: true })}
+                  style={{ margin: "5px" }}
                 >
                   Edit
                 </button>
                 <button
-                  className="btn btn-primary m-2"
+                  className="btn btn-danger btn-lg"
+                  aria-pressed="false"
+                  autocomplete="off"
                   onClick={() => onDeleting(movie)}
                 >
                   Delete
@@ -87,7 +98,7 @@ class Movie extends Component {
                 <table>
                   <tbody>
                     <tr>
-                      <td>cast</td>
+                      <th style={{ color: "black" }}>cast: </th>
                       <td>
                         <input
                           type="text"
@@ -101,7 +112,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Title</td>
+                      <th style={{ color: "black" }}>Title: </th>
                       <td>
                         <input
                           type="text"
@@ -115,7 +126,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Image</td>
+                      <th style={{ color: "black" }}>Image: </th>
                       <td>
                         <input
                           type="text"
@@ -128,7 +139,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Language</td>
+                      <th style={{ color: "black" }}>Language: </th>
                       <td>
                         <input
                           type="text"
@@ -144,7 +155,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Genre</td>
+                      <th style={{ color: "black" }}>Genre: </th>
                       <td>
                         <input
                           type="text"
@@ -158,7 +169,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Director</td>
+                      <th style={{ color: "black" }}>Director</th>
                       <td>
                         <input
                           type="text"
@@ -174,7 +185,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Description</td>
+                      <th style={{ color: "black" }}>Description: </th>
                       <td>
                         <input
                           type="text"
@@ -190,7 +201,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Duration</td>
+                      <th style={{ color: "black" }}>Duration: </th>
                       <td>
                         <input
                           type="number"
@@ -206,7 +217,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>ReleaseDate</td>
+                      <th style={{ color: "black" }}>ReleaseDate</th>
                       <td>
                         <input
                           type="date"
@@ -222,7 +233,7 @@ class Movie extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>EndDate</td>
+                      <th style={{ color: "black" }}>EndDate</th>
                       <td>
                         <input
                           type="date"
@@ -235,18 +246,29 @@ class Movie extends Component {
                         />
                       </td>
                     </tr>
+                    <br></br>
                     <tr>
-                      <td style={{ textAlign: "center" }}>
-                        <button type="save">save</button>
+                      <td colspan="1" style={{ textAlign: "center" }}>
+                        <button
+                          className="btn btn-success btn-block btn-lg"
+                          aria-pressed="false"
+                          autocomplete="off"
+                          type="save"
+                        >
+                          save
+                        </button>
                       </td>
-                      <td style={{ textAlign: "center" }}></td>
                     </tr>
                   </tbody>
                 </table>
               </form>
               <button
                 type="save"
+                className="btn btn-danger  btn-lg"
+                aria-pressed="false"
+                autocomplete="off"
                 onClick={() => this.setState({ editFlag: false })}
+                // style={{ textAlign: "center", margin: "auto" }}
               >
                 cancel
               </button>

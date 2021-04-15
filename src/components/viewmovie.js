@@ -9,9 +9,11 @@ class ViewMovie extends Component {
       <Card className="sm-3 m-3">
         <img src={movie.image} alt={movie.title} height="300px" />
         <Card.Body>
-          <Card.Title style={{ color: "blue" }}>{movie.title}</Card.Title>
+          <Card.Title style={{ color: "blue" }}>
+            <b>{movie.title}</b>
+          </Card.Title>
           <div>
-            <button className="btn btn-primary" onClick={() => onView(movie)}>
+            <button className="btn btn-info" onClick={() => onView(movie)}>
               view
             </button>
           </div>

@@ -71,21 +71,28 @@ class ShowTime extends Component {
             />
             <Card.Body>
               <Card.Title style={{ color: "blue" }}>
-                Movie Name: {this.state.movie.title}
+                <b> Movie Name: {this.state.movie.title}</b>
               </Card.Title>
-              <Card.Title style={{ color: "blue" }}>
-                Theatre Name: {this.state.theatre.name}
+              <Card.Title style={{ color: "black" }}>
+                <b>Theatre Name: {this.state.theatre.name}</b>
               </Card.Title>
-              <Card.Text>Slot: {showtime.startAt}</Card.Text>
+              <Card.Text style={{ color: "black" }}>
+                Slot: {showtime.startAt}
+              </Card.Text>
               <div>
                 <button
-                  className="btn btn-primary m-2"
+                  className="btn btn-warning btn-lg"
+                  aria-pressed="false"
+                  autocomplete="off"
                   onClick={() => this.setState({ editFlag: true })}
+                  style={{ margin: "5px" }}
                 >
                   Edit
                 </button>
                 <button
-                  className="btn btn-primary m-2"
+                  className="btn btn-danger btn-lg"
+                  aria-pressed="false"
+                  autocomplete="off"
                   onClick={() => onDeleting(showtime)}
                 >
                   Delete
@@ -100,7 +107,7 @@ class ShowTime extends Component {
                 <table>
                   <tbody>
                     <tr>
-                      <td>movieId</td>
+                      <th style={{ color: "black" }}>Movie Id: </th>
                       <td>
                         <input
                           type="text"
@@ -114,7 +121,7 @@ class ShowTime extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>cinemaId</td>
+                      <th style={{ color: "black" }}>Cinema Id: </th>
                       <td>
                         <input
                           type="text"
@@ -128,7 +135,7 @@ class ShowTime extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>startDate</td>
+                      <th style={{ color: "black" }}>Start Date: </th>
                       <td>
                         <input
                           type="date"
@@ -142,7 +149,7 @@ class ShowTime extends Component {
                     </tr>
 
                     <tr>
-                      <td>endDate</td>
+                      <th style={{ color: "black" }}>End Date: </th>
                       <td>
                         <input
                           type="date"
@@ -159,7 +166,7 @@ class ShowTime extends Component {
                     </tr>
 
                     <tr>
-                      <td>startAt</td>
+                      <th style={{ color: "black" }}>Start At: </th>
                       <td>
                         <input
                           type="text"
@@ -176,16 +183,26 @@ class ShowTime extends Component {
                     </tr>
 
                     <tr>
-                      <td style={{ textAlign: "center" }}>
-                        <button type="save">save</button>
+                      <td style={{ color: "black" }}>
+                        <button
+                          type="save"
+                          className="btn btn-success btn-block btn-lg"
+                          aria-pressed="false"
+                          autocomplete="off"
+                        >
+                          save
+                        </button>
                       </td>
-                      <td style={{ textAlign: "center" }}></td>
+                      <td style={{ color: "black" }}></td>
                     </tr>
                   </tbody>
                 </table>
               </form>
               <button
                 type="save"
+                className="btn btn-danger  btn-lg"
+                aria-pressed="false"
+                autocomplete="off"
                 onClick={() => this.setState({ editFlag: false })}
               >
                 cancel

@@ -45,19 +45,28 @@ class Theatre extends Component {
             <img src={theatre.image} alt={theatre.title} height="300px" />
             <Card.Body>
               <Card.Title style={{ color: "blue" }}>
-                Name: {theatre.name}
+                <b>Name: {theatre.name}</b>
               </Card.Title>
-              <Card.Title>City: {theatre.city}</Card.Title>
-              <Card.Text>Price: Rs {theatre.ticketPrice}</Card.Text>
+              <Card.Title style={{ color: "black" }}>
+                <b> City: {theatre.city}</b>
+              </Card.Title>
+              <Card.Text style={{ color: "black" }}>
+                Price: Rs {theatre.ticketPrice}
+              </Card.Text>
               <div>
                 <button
-                  className="btn btn-primary m-2"
+                  className="btn btn-warning btn-lg"
+                  aria-pressed="false"
+                  autocomplete="off"
                   onClick={() => this.setState({ editFlag: true })}
+                  style={{ margin: "5px" }}
                 >
                   Edit
                 </button>
                 <button
-                  className="btn btn-primary m-2"
+                  className="btn btn-danger btn-lg"
+                  aria-pressed="false"
+                  autocomplete="off"
                   onClick={() => onDeleting(theatre)}
                 >
                   Delete
@@ -73,7 +82,7 @@ class Theatre extends Component {
                 <table>
                   <tbody>
                     <tr>
-                      <td>name</td>
+                      <th style={{ color: "black" }}>Name: </th>
                       <td>
                         <input
                           type="text"
@@ -87,7 +96,7 @@ class Theatre extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>city</td>
+                      <th style={{ color: "black" }}>City: </th>
                       <td>
                         <input
                           type="text"
@@ -101,7 +110,7 @@ class Theatre extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>Image</td>
+                      <th style={{ color: "black" }}>Image: </th>
                       <td>
                         <input
                           type="text"
@@ -115,7 +124,7 @@ class Theatre extends Component {
                     </tr>
 
                     <tr>
-                      <td>ticketPrice</td>
+                      <th style={{ color: "black" }}>TicketPrice: </th>
                       <td>
                         <input
                           type="number"
@@ -133,7 +142,14 @@ class Theatre extends Component {
 
                     <tr>
                       <td style={{ textAlign: "center" }}>
-                        <button type="save">save</button>
+                        <button
+                          className="btn btn-success btn-block btn-lg"
+                          aria-pressed="false"
+                          autocomplete="off"
+                          type="save"
+                        >
+                          save
+                        </button>
                       </td>
                       <td style={{ textAlign: "center" }}></td>
                     </tr>
@@ -142,6 +158,9 @@ class Theatre extends Component {
               </form>
               <button
                 type="save"
+                className="btn btn-danger  btn-lg"
+                aria-pressed="false"
+                autocomplete="off"
                 onClick={() => this.setState({ editFlag: false })}
               >
                 cancel

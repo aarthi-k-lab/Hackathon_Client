@@ -143,40 +143,48 @@ class Theatres extends Component {
 
   render() {
     return (
-      <div className="row">
-        <button
-          onClick={() =>
-            this.setState({
-              addFlag: this.state.addFlag == true ? false : true,
-            })
-          }
-        >
-          <img
-            src="https://www.sanadig.com/img/add.png"
-            alt="addTheatre"
-            length="100"
-            width="100"
-          ></img>
-        </button>
-        {this.state.addFlag == true ? (
-          <AddTheatre onAdding={this.handleAdding} />
-        ) : (
-          <></>
-        )}
-        {this.state.theatres.length > 0 ? (
-          this.state.theatres.map((theatre) => (
-            <div key={theatre._id} className="col-sm-4">
-              <Theatre
-                theatre={theatre}
-                onDeleting={this.handleDelete}
-                onSave={this.handleSave}
-              />
+      <>
+        <div className="container-fluid">
+          <br></br>
+          <div className="row">
+            <div className="col-2">
+              <button
+                onClick={() =>
+                  this.setState({
+                    addFlag: this.state.addFlag == true ? false : true,
+                  })
+                }
+              >
+                <img
+                  src="https://www.sanadig.com/img/add.png"
+                  alt="addTheatre"
+                  length="100"
+                  width="100"
+                ></img>
+              </button>
             </div>
-          ))
-        ) : (
-          <div>Sorry there is no Theatre at present</div>
-        )}
-      </div>
+
+            {this.state.addFlag == true ? (
+              <AddTheatre onAdding={this.handleAdding} />
+            ) : (
+              <></>
+            )}
+            {this.state.theatres.length > 0 ? (
+              this.state.theatres.map((theatre) => (
+                <div key={theatre._id} className="col-4">
+                  <Theatre
+                    theatre={theatre}
+                    onDeleting={this.handleDelete}
+                    onSave={this.handleSave}
+                  />
+                </div>
+              ))
+            ) : (
+              <div>Sorry there is no Theatre at present</div>
+            )}
+          </div>
+        </div>
+      </>
     );
   }
 }

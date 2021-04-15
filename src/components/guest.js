@@ -30,32 +30,49 @@ class Guest extends Component {
   render() {
     const { user } = this.props;
     return (
-      <div className="BookATick ">
-        <h1>Book A Tick</h1>
-        <h3>Welcome to Book- A -Tick Website</h3>
-        <h6>Booking made easy</h6>
-
-        {this.state.detailFlag == false ? (
+      <>
+        <br></br>
+        <div className="BookATick container-fluid">
           <div className="row">
-            {this.state.movies.length > 0 ? (
-              this.state.movies.map((movie) => (
-                <div key={movie._id} className="col-sm-3">
-                  <ViewMovie movie={movie} onView={this.handleView} />
-                </div>
-              ))
-            ) : (
-              <div>Sorry there is no movies at present</div>
-            )}
+            <div className="col-12">
+              <h1 style={{ textAlign: "center" }}>Book A Tick</h1>
+            </div>
           </div>
-        ) : (
-          <MovieDetails
-            movie={this.state.movie}
-            onView={this.handleMovie}
-            booked={this.booked}
-            user={user}
-          />
-        )}
-      </div>
+          <div className="row">
+            <div className="col-12">
+              <h3 style={{ textAlign: "center" }}>
+                Welcome to Book- A -Tick Website
+              </h3>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <h6 style={{ textAlign: "center" }}>Booking made easy</h6>
+            </div>
+          </div>
+
+          {this.state.detailFlag == false ? (
+            <div className="row">
+              {this.state.movies.length > 0 ? (
+                this.state.movies.map((movie) => (
+                  <div key={movie._id} className="col-sm-3">
+                    <ViewMovie movie={movie} onView={this.handleView} />
+                  </div>
+                ))
+              ) : (
+                <div>Sorry there is no movies at present</div>
+              )}
+            </div>
+          ) : (
+            <MovieDetails
+              movie={this.state.movie}
+              onView={this.handleMovie}
+              booked={this.booked}
+              user={user}
+            />
+          )}
+        </div>
+      </>
     );
   }
 }

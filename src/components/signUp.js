@@ -20,57 +20,85 @@ class SignUpForm extends Component {
   render() {
     return (
       <>
-        <form className="signUp" onSubmit={this.onTrigger}>
-          <div className="signUpForm">
-            <div className="userEmailId">
-              <label htmlFor="email">User Email</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="example@mail.com"
-                required
-                onChange={(event) =>
-                  this.setState({ email: event.target.value })
-                }
-              />
+        <form className="signUp container-fluid" onSubmit={this.onTrigger}>
+          <div className="signUpForm container-fluid">
+            <div className="userEmailId row">
+              <div className="col-6">
+                <label htmlFor="email">User Email</label>
+              </div>
+              <div className="col-6">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="example@mail.com"
+                  required
+                  onChange={(event) =>
+                    this.setState({ email: event.target.value })
+                  }
+                />
+              </div>
             </div>
-            <div className="userPassword">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                required
-                minLength="7"
-                onChange={(event) =>
-                  this.setState({ password: event.target.value })
-                }
-              />
+            <br></br>
+            <div className="userPassword row">
+              <div className="col-6">
+                <label htmlFor="password">Password</label>
+              </div>
+              <div className="col-6">
+                <input
+                  type="password"
+                  id="password"
+                  required
+                  minLength="7"
+                  onChange={(event) =>
+                    this.setState({ password: event.target.value })
+                  }
+                />
+              </div>
             </div>
-            <div className="username">
-              <label htmlFor="username">User Name</label>
-              <input
-                type="text"
-                id="username"
-                required
-                onChange={(event) =>
-                  this.setState({ username: event.target.value })
-                }
-              />
+            <br></br>
+            <div className="username row">
+              <div className="col-6">
+                <label htmlFor="username">User Name</label>
+              </div>
+              <div className="col-6">
+                <input
+                  type="text"
+                  id="username"
+                  required
+                  onChange={(event) =>
+                    this.setState({ username: event.target.value })
+                  }
+                />
+              </div>
             </div>
-            <div className="phone Number">
-              <label htmlFor="phoneNumber">Phone Number</label>
-              <input
-                type="text"
-                id="phoneNumber"
-                required
-                minLength="10"
-                maxLength="10"
-                onChange={(event) =>
-                  this.setState({ phoneNumber: event.target.value })
-                }
-              />
+            <br></br>
+            <div className="phone Number row">
+              <div className="col-6">
+                <label htmlFor="phoneNumber">Phone Number</label>
+              </div>
+              <div className="col-6">
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  required
+                  minLength="10"
+                  maxLength="10"
+                  onChange={(event) =>
+                    this.setState({ phoneNumber: event.target.value })
+                  }
+                />
+              </div>
             </div>
-            <button type="submit">Login</button>
+            <br></br>
+            <button
+              className="btn btn-info btn-outline-light btn-lg"
+              data-toggle="button"
+              aria-pressed="false"
+              autocomplete="off"
+              type="submit"
+            >
+              Login
+            </button>
           </div>
         </form>
       </>

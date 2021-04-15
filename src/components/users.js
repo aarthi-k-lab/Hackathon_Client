@@ -78,22 +78,43 @@ class Users extends Component {
         <table style={{ borderCollapse: "collapse" }}>
           <thead>
             <tr>
-              <th scope="col">Username</th>
-              <th scope="col">Email</th>
-              <th scope="col">Role</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Action</th>
+              <th style={{ color: "white" }} scope="col">
+                Username
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                Email
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                Role
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                Phone
+              </th>
+              <th style={{ color: "white" }} scope="col">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {this.state.users.map((user) => (
               <tr>
-                <td scope="row">{user.username}</td>
-                <td scope="row">{user.email}</td>
-                <td scope="row">{user.role}</td>
-                <td scope="row">{user.phone}</td>
-                <td scope="row">
-                  <button onClick={() => this.handleDelete(user)}>
+                <td style={{ color: "white" }} scope="row">
+                  {user.username}
+                </td>
+                <td style={{ color: "white" }} scope="row">
+                  {user.email}
+                </td>
+                <td style={{ color: "white" }} scope="row">
+                  {user.role}
+                </td>
+                <td style={{ color: "white" }} scope="row">
+                  {user.phone}
+                </td>
+                <td style={{ color: "white" }} scope="row">
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => this.handleDelete(user)}
+                  >
                     Delete ❌
                   </button>
                 </td>

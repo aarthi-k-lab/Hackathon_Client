@@ -44,13 +44,27 @@ class Reservation extends Component {
     const formattedDate = moment(reservation.date).format("yyyy-MM-DD");
     return (
       <tr>
-        <td scope="row">{this.state.user.username}</td>
-        <td scope="row">{this.state.movie.title}</td>
-        <td scope="row">{this.state.theatre.name}</td>
-        <td scope="row">{formattedDate}</td>
-        <td scope="row">{reservation.startAt}</td>
-        <td scope="row">{reservation.seats}</td>
-        <td scope="row">Rs. {reservation.total}</td>
+        <td style={{ color: "white" }} scope="row">
+          {this.state.user.username}
+        </td>
+        <td style={{ color: "white" }} scope="row">
+          {this.state.movie.title}
+        </td>
+        <td style={{ color: "white" }} scope="row">
+          {this.state.theatre.name}
+        </td>
+        <td style={{ color: "white" }} scope="row">
+          {formattedDate}
+        </td>
+        <td style={{ color: "white" }} scope="row">
+          {reservation.startAt}
+        </td>
+        <td style={{ color: "white" }} scope="row">
+          {reservation.seats}
+        </td>
+        <td style={{ color: "white" }} scope="row">
+          Rs. {reservation.total}
+        </td>
       </tr>
     );
   }

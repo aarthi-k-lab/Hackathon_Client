@@ -11,12 +11,21 @@ class Client extends Component {
 
     return (
       <>
-        <div className="clientNavbar">
-          <h1 className="welcomeText">Welcome {user.username}</h1>
-          <h3 className="role">Role: {user.role}</h3>
-          <button className="btn btn-danger" onClick={onLogOut}>
-            LogOut
-          </button>
+        <div className="container-fluid clientNavbar">
+          <br></br>
+          <div className="row">
+            <div className="col-4">
+              <h3 className="welcomeText">Welcome {user.username}</h3>
+            </div>
+            <div className="col-4">
+              <h3 className="role">Role: {user.role}</h3>
+            </div>
+            <div className="col-4">
+              <button className="btn btn-danger" onClick={onLogOut}>
+                LogOut
+              </button>
+            </div>
+          </div>
         </div>
         {user.role == "admin" ? <Admin user={user} /> : <Guest user={user} />}
       </>
