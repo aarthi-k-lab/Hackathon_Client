@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 class BookingConfirm extends Component {
-  state = { theatre: {}, movie: {}, bookedflag: false };
+  state = { theatre: {}, movie: {}, bookedflag: false, reservation: {} };
 
   componentDidMount = async () => {
     let mockapiurl =
@@ -100,6 +100,33 @@ class BookingConfirm extends Component {
       this.state.movie._id,
       this.props.user._id
     );
+
+    // );
+
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "aarthiak2103@gmail.com",
+      Password: "F29B7D6C95D43CB05A75BFA76778D63C1DC4",
+      To: this.props.user.email,
+      From: "aarthiak2103@gmail.com",
+      Subject: "Book A Tick- Confirmation",
+      Body:
+        "<html><h1 style='color:green'>Booking is confirmed. Thanks for booking tickets with us. Ticket has been booked for movie </h1><img src='" +
+        this.state.movie.image +
+        "'/><table><tbody><tr><th>Booking id: </th><td>" +
+        this.state.reservation._id +
+        "</td></tr><tr><th>Movie Name </th><td>" +
+        this.state.movie.title +
+        "</td></tr><tr><th>Theatre name </th><td>" +
+        this.state.theatre.name +
+        " </td></tr><tr><th>Booking Date </th><td>" +
+        this.props.bookDate +
+        " </td></tr><tr><th>Show Time </th><td>" +
+        this.props.showtime.startAt +
+        "</td></tr><tr><th>Seat Number  </th><td>" +
+        seatReserved.join(",") +
+        "</td></tr></tbody></table>. Have a great movie!!</html>",
+    }).then((message) => alert("mail sent successfully"));
   };
 
   handleAddingReservations = async (
@@ -140,6 +167,7 @@ class BookingConfirm extends Component {
       if (reservation.name == "MongoError") {
         alert("some format error while storing");
       }
+      this.setState({ reservation });
     } catch (error) {
       console.log(error);
     }
