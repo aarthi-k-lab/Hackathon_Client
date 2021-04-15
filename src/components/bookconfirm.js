@@ -185,7 +185,7 @@ class BookingConfirm extends Component {
               {this.state.theatre.name} theatre for the date {bookDate},
               {showtime.startAt}{" "}
             </h6>
-            <button class="btn btn-primary" onClick={() => booked()}>
+            <button className="btn btn-primary" onClick={() => booked()}>
               Go Back to Home page
             </button>
           </div>

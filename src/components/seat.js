@@ -15,9 +15,11 @@ class Seat extends Component {
         if (
           reservation.cinemaId == this.props.showtime.cinemaId &&
           reservation.movieId == this.props.showtime.movieId &&
-          reservation.startAt == this.props.showtime.startAt
+          reservation.showtimeId == this.props.showtime._id
         ) {
-          seatsbooked = reservation.seats;
+          reservation.seats.map((seat) => {
+            seatsbooked = [...seatsbooked, seat];
+          });
         }
 
         this.setState({ seatsbooked });

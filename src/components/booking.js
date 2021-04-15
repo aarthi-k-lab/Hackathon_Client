@@ -185,6 +185,7 @@ class Booking extends Component {
                       {seatrow.map((seat, index2) => {
                         return (
                           <Seat
+                            key={index1 + index2}
                             seat={seat}
                             onSelect={this.handleSelect}
                             index1={index1}
