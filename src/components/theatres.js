@@ -170,8 +170,8 @@ class Theatres extends Component {
               <></>
             )}
             {this.state.theatres.length > 0 ? (
-              this.state.theatres.map((theatre) => (
-                <div key={theatre._id} className="col-4">
+              this.state.theatres.map((theatre, index) => (
+                <div key={index} className="col-4">
                   <Theatre
                     theatre={theatre}
                     onDeleting={this.handleDelete}

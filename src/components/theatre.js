@@ -57,7 +57,7 @@ class Theatre extends Component {
                 <button
                   className="btn btn-warning btn-lg"
                   aria-pressed="false"
-                  autocomplete="off"
+                  autoComplete="off"
                   onClick={() => this.setState({ editFlag: true })}
                   style={{ margin: "5px" }}
                 >
@@ -66,7 +66,7 @@ class Theatre extends Component {
                 <button
                   className="btn btn-danger btn-lg"
                   aria-pressed="false"
-                  autocomplete="off"
+                  autoComplete="off"
                   onClick={() => onDeleting(theatre)}
                 >
                   Delete
@@ -160,7 +160,7 @@ class Theatre extends Component {
                 type="save"
                 className="btn btn-danger  btn-lg"
                 aria-pressed="false"
-                autocomplete="off"
+                autoComplete="off"
                 onClick={() => this.setState({ editFlag: false })}
               >
                 cancel

@@ -73,7 +73,7 @@ class Movie extends Component {
                 <button
                   className="btn btn-warning btn-lg"
                   aria-pressed="false"
-                  autocomplete="off"
+                  autoComplete="off"
                   onClick={() => this.setState({ editFlag: true })}
                   style={{ margin: "5px" }}
                 >
@@ -82,7 +82,7 @@ class Movie extends Component {
                 <button
                   className="btn btn-danger btn-lg"
                   aria-pressed="false"
-                  autocomplete="off"
+                  autoComplete="off"
                   onClick={() => onDeleting(movie)}
                 >
                   Delete
@@ -266,7 +266,7 @@ class Movie extends Component {
                 type="save"
                 className="btn btn-danger  btn-lg"
                 aria-pressed="false"
-                autocomplete="off"
+                autoComplete="off"
                 onClick={() => this.setState({ editFlag: false })}
                 // style={{ textAlign: "center", margin: "auto" }}
               >

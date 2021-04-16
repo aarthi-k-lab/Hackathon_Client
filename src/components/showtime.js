@@ -83,7 +83,7 @@ class ShowTime extends Component {
                 <button
                   className="btn btn-warning btn-lg"
                   aria-pressed="false"
-                  autocomplete="off"
+                  autoComplete="off"
                   onClick={() => this.setState({ editFlag: true })}
                   style={{ margin: "5px" }}
                 >
@@ -92,7 +92,7 @@ class ShowTime extends Component {
                 <button
                   className="btn btn-danger btn-lg"
                   aria-pressed="false"
-                  autocomplete="off"
+                  autoComplete="off"
                   onClick={() => onDeleting(showtime)}
                 >
                   Delete
@@ -188,7 +188,7 @@ class ShowTime extends Component {
                           type="save"
                           className="btn btn-success btn-block btn-lg"
                           aria-pressed="false"
-                          autocomplete="off"
+                          autoComplete="off"
                         >
                           save
                         </button>
@@ -202,7 +202,7 @@ class ShowTime extends Component {
                 type="save"
                 className="btn btn-danger  btn-lg"
                 aria-pressed="false"
-                autocomplete="off"
+                autoComplete="off"
                 onClick={() => this.setState({ editFlag: false })}
               >
                 cancel

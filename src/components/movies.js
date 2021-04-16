@@ -189,10 +189,10 @@ class Movies extends Component {
             <></>
           )}
           {this.state.movies.length > 0 ? (
-            this.state.movies.map((movie) => (
-              <div key={movie._id} className="col-sm-4">
+            this.state.movies.map((movie, index) => (
+              <div key={index} className="col-sm-4">
                 <Movie
-                  key={movie._id}
+                  key={index}
                   movie={movie}
                   onDeleting={this.handleDelete}
                   onSave={this.handleSave}

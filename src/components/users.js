@@ -96,8 +96,8 @@ class Users extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.users.map((user) => (
-              <tr>
+            {this.state.users.map((user, index) => (
+              <tr key={index}>
                 <td style={{ color: "white" }} scope="row">
                   {user.username}
                 </td>
