@@ -1,17 +1,103 @@
 import React, { Component } from "react";
+import axios from "axios";
 class LoginForm extends Component {
-  state = { email: "", password: "" };
+  state = {
+    email: "",
+    password: "",
+    forgetPassFlag: false,
+    forgetEmail: "",
+    setNewPasswordFlag: false,
+    confirmPassword: "",
+    newPassword: "",
+    user: {},
+  };
 
   onTrigger = (event) => {
     this.props.onLogging(this.state.email, this.state.password);
     event.preventDefault();
   };
 
+  handleForgetPassword = () => {
+    this.setState({ forgetPassFlag: true });
+  };
+
+  handleSendOTP = async () => {
+    let email = this.state.forgetEmail;
+    try {
+      const api = axios.create({
+        baseURL: `https://immense-sands-26614.herokuapp.com`,
+      });
+      const usersResponse = await api.get("/");
+      let users = await usersResponse.data;
+      const user = users.find((user) => {
+        return user.email == email;
+      });
+      if (!user) {
+        alert(
+          "No user is registerd with this email. Sign Up to create new account"
+        );
+      } else {
+        let val = Math.floor(1000 + Math.random() * 9000);
+        Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "aarthiak2103@gmail.com",
+          Password: "F29B7D6C95D43CB05A75BFA76778D63C1DC4",
+          To: email,
+          From: "aarthiak2103@gmail.com",
+          Subject: "Book A Tick- OTP",
+          Body: "<html><span>Your OTP is " + val + "</span></html>",
+        }).then((message) => console.log());
+        let otp = parseInt(prompt("Enter the OTP Sent to the Email"));
+        if (otp == val) {
+          this.setState({
+            user: user,
+            forgetPassFlag: false,
+            forgetEmail: "",
+            setNewPasswordFlag: true,
+          });
+        } else {
+          alert("OTP doesnt match!!");
+          this.setState({ forgetPassFlag: false, forgetEmail: "" });
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  handlePasswordSetting = async () => {
+    if (this.state.confirmPassword !== this.state.newPassword) {
+      alert("Password donot match");
+    } else {
+      let user = this.state.user;
+      user.password = this.state.newPassword;
+      try {
+        const api = axios.create({
+          baseURL: `https://immense-sands-26614.herokuapp.com`,
+        });
+        const user = await api.post("/", user).data;
+        this.setState({
+          email: "",
+          password: "",
+          forgetPassFlag: false,
+          forgetEmail: "",
+          setNewPasswordFlag: false,
+          confirmPassword: "",
+          newPassword: "",
+          user: {},
+        });
+        alert("Password Changed Successfully");
+      } catch (err) {
+        console.log("err");
+      }
+    }
+  };
+
   render() {
     return (
       <>
-        <form className="container-fluid loginUser" onSubmit={this.onTrigger}>
-          <div className="container-fluid loginForm">
+        <div className="container-fluid loginForm">
+          <form className="container-fluid loginUser" onSubmit={this.onTrigger}>
             <div className="row">
               <div className="userEmailId col-6">
                 <label htmlFor="email">User Email</label>
@@ -49,17 +135,112 @@ class LoginForm extends Component {
               </div>
             </div>
             <br></br>
-            <button
-              className="btn btn-info btn-outline-light btn-lg"
-              type="submit"
-              data-toggle="button"
-              aria-pressed="false"
-              autocomplete="off"
-            >
-              Login
-            </button>
+            <div className="row">
+              <div className="col-6">
+                <button
+                  className="btn btn-success btn-outline-light btn-lg"
+                  type="submit"
+                  data-toggle="button"
+                  aria-pressed="false"
+                  autoComplete="off"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </form>
+          <br></br>
+          <div className="row">
+            <div className="col-6">
+              <button
+                className="btn btn-danger btn-outline-light btn-lg"
+                data-toggle="button"
+                aria-pressed="false"
+                autoComplete="off"
+                onClick={() => this.handleForgetPassword()}
+              >
+                Forget Password?
+              </button>
+              <div className="col-6"></div>
+            </div>
           </div>
-        </form>
+          <br></br>
+          {this.state.forgetPassFlag === true ? (
+            <>
+              <div className="row forgetPass">
+                <div className="col-6">
+                  <label>Enter email Address</label>
+                </div>
+                <div className="col-6">
+                  <input
+                    name="email"
+                    type="email"
+                    id="email"
+                    placeholder="example@mail.com"
+                    required
+                    onChange={(event) =>
+                      this.setState({ forgetEmail: event.target.value })
+                    }
+                  />
+                </div>
+              </div>
+              <br></br>
+              <button
+                className=" btn btn-info btn-outline-light"
+                data-toggle="button"
+                aria-pressed="false"
+                autoComplete="off"
+                onClick={() => this.handleSendOTP()}
+              >
+                Send OTP to Mail
+              </button>
+            </>
+          ) : this.state.setNewPasswordFlag == true ? (
+            <>
+              <div className="row">
+                <div className="col-6">Enter New Password: </div>
+                <div className="col-6">
+                  <input
+                    name="newPass"
+                    type="password"
+                    id="newPass"
+                    required
+                    onChange={(event) =>
+                      this.setState({ newPassword: event.target.value })
+                    }
+                  />
+                </div>
+              </div>
+              <br></br>
+              <div className="row">
+                <div className="col-6">Confirm New Password: </div>
+                <div className="col-6">
+                  <input
+                    name="confirmPass"
+                    type="password"
+                    id="confirmPass"
+                    required
+                    onChange={(event) =>
+                      this.setState({ confirmPassword: event.target.value })
+                    }
+                  />
+                </div>
+              </div>
+              <br></br>
+              <button
+                className=" btn btn-info btn-outline-light"
+                data-toggle="button"
+                aria-pressed="false"
+                autoComplete="off"
+                onClick={() => this.handlePasswordSetting()}
+              >
+                Confirm
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
       </>
     );
   }

@@ -97,7 +97,7 @@ class SignUpForm extends Component {
               autocomplete="off"
               type="submit"
             >
-              Login
+              Create an account
             </button>
           </div>
         </form>

@@ -23,9 +23,9 @@ class NonClient extends Component {
                     onClick={() => this.setState({ login: true })}
                     data-toggle="button"
                     aria-pressed="false"
-                    autocomplete="off"
+                    autoComplete="off"
                   >
-                    Login
+                    Sign In
                   </button>
                 </div>
                 <div className="col-6">
@@ -34,7 +34,7 @@ class NonClient extends Component {
                     onClick={() => this.setState({ login: false })}
                     data-toggle="button"
                     aria-pressed="false"
-                    autocomplete="off"
+                    autoComplete="off"
                   >
                     Sign Up
                   </button>

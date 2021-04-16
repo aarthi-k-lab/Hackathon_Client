@@ -248,7 +248,7 @@ class Movie extends Component {
                     </tr>
                     <br></br>
                     <tr>
-                      <td colspan="1" style={{ textAlign: "center" }}>
+                      <td style={{ textAlign: "center" }}>
                         <button
                           className="btn btn-success btn-block btn-lg"
                           aria-pressed="false"

@@ -17,43 +17,55 @@ class MovieDetails extends Component {
   };
   handleBooking = async () => {
     const bookedDate = moment(this.state.bookDate).format("DD-MM-YYYY");
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + "-" + mm + "-" + yyyy;
+
     if (this.state.bookDate == null) {
       alert("Please enter date for bookin");
     } else {
-      let mockapiurl =
-        "https://immense-sands-26614.herokuapp.com/api/showtimes/";
-      try {
-        const showTimeResponse = await fetch(mockapiurl);
-        let showTimes = await showTimeResponse.json();
-        let stateshowtimes = [];
-        showTimes.map((showtime) => {
-          const startDate = moment(showtime.startDate).format("DD-MM-YYYY");
-          const endDate = moment(showtime.endDate).format("DD-MM-YYYY");
+      var t = today.split("-");
+      var c = bookedDate.split("-");
+      var check = new Date(c[2], parseInt(c[1]) - 1, c[0]);
+      var tod = new Date(t[2], parseInt(t[1]) - 1, t[0]);
+      if (check < tod) {
+        alert("Please book future dates");
+      } else {
+        let mockapiurl =
+          "https://immense-sands-26614.herokuapp.com/api/showtimes/";
+        try {
+          const showTimeResponse = await fetch(mockapiurl);
+          let showTimes = await showTimeResponse.json();
+          let stateshowtimes = [];
+          showTimes.map((showtime) => {
+            const startDate = moment(showtime.startDate).format("DD-MM-YYYY");
+            const endDate = moment(showtime.endDate).format("DD-MM-YYYY");
 
-          var d1 = startDate.split("-");
-          var d2 = endDate.split("-");
-          var c = bookedDate.split("-");
+            var d1 = startDate.split("-");
+            var d2 = endDate.split("-");
 
-          var from = new Date(d1[2], parseInt(d1[1]) - 1, d1[0]); // -1 because months are from 0 to 11
-          var to = new Date(d2[2], parseInt(d2[1]) - 1, d2[0]);
-          var check = new Date(c[2], parseInt(c[1]) - 1, c[0]);
+            var from = new Date(d1[2], parseInt(d1[1]) - 1, d1[0]); // -1 because months are from 0 to 11
+            var to = new Date(d2[2], parseInt(d2[1]) - 1, d2[0]);
 
-          if (
-            check >= from &&
-            check <= to &&
-            this.props.movie._id == showtime.movieId
-          ) {
-            stateshowtimes = [...stateshowtimes, showtime];
-            this.setState({ bookFlag: true });
+            if (
+              check >= from &&
+              check <= to &&
+              this.props.movie._id == showtime.movieId
+            ) {
+              stateshowtimes = [...stateshowtimes, showtime];
+              this.setState({ bookFlag: true });
+            }
+          });
+          this.setState({ showTimes: stateshowtimes });
+
+          if (this.state.bookFlag == false) {
+            alert("Sorry no showtimes for this movie on the mentioned date");
           }
-        });
-        this.setState({ showTimes: stateshowtimes });
-
-        if (this.state.bookFlag == false) {
-          alert("Sorry no showtimes for this movie on the mentioned date");
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
       }
     }
   };
@@ -129,17 +141,24 @@ class MovieDetails extends Component {
       <>
         {this.state.bookFlag == false ? (
           <div className="movieDetails">
-            <button className="btn btn-primary" onClick={() => onView()}>
-              Back
-            </button>
+            <hr></hr>
             <div className="row">
               <div className="col-sm-4">
+                <button
+                  className="btn btn-danger btn-lg movieListBtn btn-outline-warning"
+                  data-toggle="button"
+                  aria-pressed="false"
+                  autoComplete="off"
+                  onClick={() => onView()}
+                >
+                  Back
+                </button>
                 <Card className="sm-3 m-3">
                   <img src={movie.image} alt={movie.title} height="300px" />
                 </Card>
               </div>
               <div className="col-sm-6">
-                <h1 className="movieName">{movie.title}</h1>
+                <h1 className="movieName">Movie: {movie.title}</h1>
                 <p className="duration">
                   <b>Duration: </b>
                   {movie.duration}
@@ -158,7 +177,7 @@ class MovieDetails extends Component {
                   {movie.language}
                 </p>
                 <div>
-                  <label htmlFor="bookDate">Booking Date</label>
+                  <label htmlFor="bookDate">Booking Date: </label>
                   <input
                     type="date"
                     id="bookDate"
@@ -168,8 +187,12 @@ class MovieDetails extends Component {
                     }
                   ></input>
                 </div>
+                <br></br>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-success btn-lg btn-outline-warning movieListBtn"
+                  data-toggle="button"
+                  aria-pressed="false"
+                  autoComplete="off"
                   onClick={this.handleBooking}
                 >
                   Book Now

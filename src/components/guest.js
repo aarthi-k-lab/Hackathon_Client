@@ -54,8 +54,8 @@ class Guest extends Component {
           {this.state.detailFlag == false ? (
             <div className="row">
               {this.state.movies.length > 0 ? (
-                this.state.movies.map((movie) => (
-                  <div key={movie._id} className="col-sm-3">
+                this.state.movies.map((movie, index) => (
+                  <div key={index} className="col-sm-3">
                     <ViewMovie movie={movie} onView={this.handleView} />
                   </div>
                 ))

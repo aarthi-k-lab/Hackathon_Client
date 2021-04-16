@@ -126,7 +126,7 @@ class BookingConfirm extends Component {
         "</td></tr><tr><th>Seat Number  </th><td>" +
         seatReserved.join(",") +
         "</td></tr></tbody></table>. Have a great movie!!</html>",
-    }).then((message) => alert("mail sent successfully"));
+    }).then((message) => console.log());
   };
 
   handleAddingReservations = async (
@@ -195,13 +195,23 @@ class BookingConfirm extends Component {
             <h4>Total Price: {this.state.theatre.ticketPrice * totalSeats}</h4>
 
             <button
-              className="btn btn-primary"
+              className="btn btn-outline-success"
+              data-toggle="button"
+              aria-pressed="false"
+              autoComplete="off"
+              style={{ marginRight: "15px" }}
               onClick={() => this.handleConfirm()}
             >
               Confirm and Book
             </button>
 
-            <button className="btn btn-primary" onClick={() => onback()}>
+            <button
+              className="btn btn-outline-success"
+              data-toggle="button"
+              aria-pressed="false"
+              autoComplete="off"
+              onClick={() => onback()}
+            >
               Back
             </button>
           </div>
@@ -213,7 +223,10 @@ class BookingConfirm extends Component {
               {this.state.theatre.name} theatre for the date {bookDate},
               {showtime.startAt}{" "}
             </h6>
-            <button className="btn btn-primary" onClick={() => booked()}>
+            <button
+              className="btn btn-outline-success"
+              onClick={() => booked()}
+            >
               Go Back to Home page
             </button>
           </div>

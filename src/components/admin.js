@@ -28,7 +28,7 @@ class Admin extends Component {
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
               aria-pressed="false"
-              autocomplete="off"
+              autoComplete="off"
               onClick={() => {
                 this.setState({
                   bookmovieflag: true,
@@ -48,7 +48,7 @@ class Admin extends Component {
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
               aria-pressed="false"
-              autocomplete="off"
+              autoComplete="off"
               onClick={() => {
                 this.setState({
                   bookmovieflag: false,
@@ -68,7 +68,7 @@ class Admin extends Component {
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
               aria-pressed="false"
-              autocomplete="off"
+              autoComplete="off"
               onClick={() => {
                 this.setState({
                   bookmovieflag: false,
@@ -88,7 +88,7 @@ class Admin extends Component {
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
               aria-pressed="false"
-              autocomplete="off"
+              autoComplete="off"
               onClick={() => {
                 this.setState({
                   bookmovieflag: false,
@@ -108,7 +108,7 @@ class Admin extends Component {
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
               aria-pressed="false"
-              autocomplete="off"
+              autoComplete="off"
               onClick={() => {
                 this.setState({
                   bookmovieflag: false,
@@ -128,7 +128,7 @@ class Admin extends Component {
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
               aria-pressed="false"
-              autocomplete="off"
+              autoComplete="off"
               onClick={() => {
                 this.setState({
                   bookmovieflag: false,

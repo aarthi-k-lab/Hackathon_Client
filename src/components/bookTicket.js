@@ -23,30 +23,56 @@ class BookTickets extends Component {
     const { movie, showTimes, onBack, onBooking } = this.props;
     return (
       <>
-        <div className="bookTickets">
-          <button className="btn btn-primary" onClick={() => onBack()}>
+        <div className="bookTickets ">
+          <button
+            className="btn btn-danger btn-lg movieListBtn btn-outline-warning"
+            data-toggle="button"
+            aria-pressed="false"
+            autoComplete="off"
+            onClick={() => onBack()}
+          >
             Back
           </button>
+          <br></br>
+          <br></br>
           <h1 className="movieName">Movie: {movie.title}</h1>
+          <br></br>
           <table border="1" style={{ borderCollapse: "collapse" }}>
             <thead>
               <tr>
-                <th scope="col">TheatreName</th>
-                <th scope="col">slot</th>
-                <th scope="col">Book</th>
+                <th
+                  scope="col"
+                  style={{ padding: "15px", backgroundColor: "#17a2b8" }}
+                >
+                  TheatreName
+                </th>
+                <th
+                  scope="col"
+                  style={{ padding: "15px", backgroundColor: "#17a2b8" }}
+                >
+                  slot
+                </th>
+                <th
+                  scope="col"
+                  style={{ padding: "15px", backgroundColor: "#17a2b8" }}
+                >
+                  Book
+                </th>
               </tr>
             </thead>
             <tbody>
               {showTimes.map((showtime) => {
                 return (
                   <tr>
-                    <td scope="row">
+                    <td scope="row" style={{ padding: "15px" }}>
                       {this.state.theatreMap[showtime.cinemaId]}
                     </td>
-                    <td scope="row">{showtime.startAt}</td>
-                    <td scope="row">
+                    <td scope="row" style={{ padding: "15px" }}>
+                      {showtime.startAt}
+                    </td>
+                    <td scope="row" style={{ padding: "15px" }}>
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-outline-success"
                         onClick={() => onBooking(showtime)}
                       >
                         Book
