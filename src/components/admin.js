@@ -23,7 +23,7 @@ class Admin extends Component {
           className="row admin_navbar"
           style={{ border: "1px solid #242333", backgroundColor: "#17a2b8" }}
         >
-          <div className="col-2">
+          <div className="col-4 col-md-2">
             <button
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
@@ -43,7 +43,7 @@ class Admin extends Component {
               Book Movie
             </button>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2">
             <button
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
@@ -63,7 +63,7 @@ class Admin extends Component {
               Movie List
             </button>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2">
             <button
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
@@ -83,7 +83,7 @@ class Admin extends Component {
               Theatre List
             </button>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2">
             <button
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
@@ -103,7 +103,7 @@ class Admin extends Component {
               Show Time List
             </button>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2">
             <button
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"
@@ -123,7 +123,7 @@ class Admin extends Component {
               User List
             </button>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2">
             <button
               className="btn btn-info btn-lg btn-block btn-outline-light movieListBtn"
               data-toggle="button"

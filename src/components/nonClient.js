@@ -14,8 +14,8 @@ class NonClient extends Component {
         <div className="container-fluid LoginPage">
           <br></br>
           <div className="row">
-            <div className="col-6"></div>
-            <div className="col-6">
+            <div className="col-2 col-sm-4"></div>
+            <div className="col-10 col-sm-7">
               <div className="row">
                 <div className="col-6">
                   <button
@@ -45,19 +45,17 @@ class NonClient extends Component {
           <br></br>
           <br></br>
           <div className="row">
-            <div className="col-6">
-              <h1
-                id="appName"
-                style={{
-                  margin: "auto",
-                  width: "50%",
-                  alignText: "center",
-                }}
-              >
-                Book-a-Tick
-              </h1>
+            <div
+              className="col-12 col-md-6"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "15px",
+              }}
+            >
+              <h1 id="appName">Book-a-Tick</h1>
             </div>
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               {this.state.login === true ? (
                 <LoginForm onLogging={handleLogin} />
               ) : (

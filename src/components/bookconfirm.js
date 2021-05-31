@@ -174,19 +174,12 @@ class BookingConfirm extends Component {
   };
 
   render() {
-    const {
-      showtime,
-      totalSeats,
-      bookDate,
-      onback,
-      seats,
-      booked,
-      user,
-    } = this.props;
+    const { showtime, totalSeats, bookDate, onback, seats, booked, user } =
+      this.props;
     return (
       <>
         {this.state.bookedflag == false ? (
-          <div>
+          <div className="col-12" style={{ margin: "15px" }}>
             <h1>MovieName: {this.state.movie.title}</h1>
             <h1>TheatreName: {this.state.theatre.name}</h1>
             <h4>Show time: {showtime.startAt}</h4>
@@ -216,7 +209,7 @@ class BookingConfirm extends Component {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="col-12" style={{ margin: "15px" }}>
             <h1>Thank you for booking ticket.</h1>
             <h6>
               Booking confirmed for movie {this.state.movie.title} in{" "}

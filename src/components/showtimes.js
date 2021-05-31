@@ -124,45 +124,42 @@ class ShowTimes extends Component {
   };
   render() {
     return (
-      <div className="container-fluid">
-        <br></br>
-        <div className="row">
-          <div className="col-2">
-            <button
-              onClick={() =>
-                this.setState({
-                  addFlag: this.state.addFlag == true ? false : true,
-                })
-              }
-            >
-              <img
-                src="https://www.sanadig.com/img/add.png"
-                alt="addMovie"
-                length="100"
-                width="100"
-              ></img>
-            </button>
-          </div>
-
-          {this.state.addFlag == true ? (
-            <AddShowTime onAdding={this.handleAdding} />
-          ) : (
-            <></>
-          )}
-          {this.state.showtimes.length > 0 ? (
-            this.state.showtimes.map((showtime) => (
-              <div key={showtime._id} className="col-sm-4">
-                <ShowTime
-                  showtime={showtime}
-                  onDeleting={this.handleDelete}
-                  onSave={this.handleSave}
-                />
-              </div>
-            ))
-          ) : (
-            <div>Sorry there is no Shows at present</div>
-          )}
+      <div className="row">
+        <div className="col-2">
+          <button
+            onClick={() =>
+              this.setState({
+                addFlag: this.state.addFlag == true ? false : true,
+              })
+            }
+          >
+            <img
+              src="https://www.sanadig.com/img/add.png"
+              alt="addMovie"
+              length="100"
+              width="100"
+            ></img>
+          </button>
         </div>
+
+        {this.state.addFlag == true ? (
+          <AddShowTime onAdding={this.handleAdding} />
+        ) : (
+          <></>
+        )}
+        {this.state.showtimes.length > 0 ? (
+          this.state.showtimes.map((showtime) => (
+            <div key={showtime._id} className="col-sm-4">
+              <ShowTime
+                showtime={showtime}
+                onDeleting={this.handleDelete}
+                onSave={this.handleSave}
+              />
+            </div>
+          ))
+        ) : (
+          <div>Sorry there is no Shows at present</div>
+        )}
       </div>
     );
   }

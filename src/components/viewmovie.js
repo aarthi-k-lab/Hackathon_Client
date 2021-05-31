@@ -6,7 +6,7 @@ class ViewMovie extends Component {
   render() {
     const { movie, onView } = this.props;
     return (
-      <Card className="sm-3 m-3">
+      <Card className="col-12 col-sm-3 sm-3 m-3">
         <img src={movie.image} alt={movie.title} height="300px" />
         <Card.Body>
           <Card.Title style={{ color: "blue" }}>

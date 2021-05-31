@@ -23,7 +23,7 @@ class BookTickets extends Component {
     const { movie, showTimes, onBack, onBooking } = this.props;
     return (
       <>
-        <div className="bookTickets ">
+        <div className="bookTickets col-12">
           <button
             className="btn btn-danger btn-lg movieListBtn btn-outline-warning"
             data-toggle="button"

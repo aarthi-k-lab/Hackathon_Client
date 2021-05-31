@@ -144,45 +144,42 @@ class Theatres extends Component {
   render() {
     return (
       <>
-        <div className="container-fluid">
-          <br></br>
-          <div className="row">
-            <div className="col-2">
-              <button
-                onClick={() =>
-                  this.setState({
-                    addFlag: this.state.addFlag == true ? false : true,
-                  })
-                }
-              >
-                <img
-                  src="https://www.sanadig.com/img/add.png"
-                  alt="addTheatre"
-                  length="100"
-                  width="100"
-                ></img>
-              </button>
-            </div>
-
-            {this.state.addFlag == true ? (
-              <AddTheatre onAdding={this.handleAdding} />
-            ) : (
-              <></>
-            )}
-            {this.state.theatres.length > 0 ? (
-              this.state.theatres.map((theatre, index) => (
-                <div key={index} className="col-4">
-                  <Theatre
-                    theatre={theatre}
-                    onDeleting={this.handleDelete}
-                    onSave={this.handleSave}
-                  />
-                </div>
-              ))
-            ) : (
-              <div>Sorry there is no Theatre at present</div>
-            )}
+        <div className="row">
+          <div className="col-sm-2">
+            <button
+              onClick={() =>
+                this.setState({
+                  addFlag: this.state.addFlag == true ? false : true,
+                })
+              }
+            >
+              <img
+                src="https://www.sanadig.com/img/add.png"
+                alt="addTheatre"
+                length="100"
+                width="100"
+              ></img>
+            </button>
           </div>
+
+          {this.state.addFlag == true ? (
+            <AddTheatre onAdding={this.handleAdding} />
+          ) : (
+            <></>
+          )}
+          {this.state.theatres.length > 0 ? (
+            this.state.theatres.map((theatre, index) => (
+              <div key={index} className="col-sm-4">
+                <Theatre
+                  theatre={theatre}
+                  onDeleting={this.handleDelete}
+                  onSave={this.handleSave}
+                />
+              </div>
+            ))
+          ) : (
+            <div>Sorry there is no Theatre at present</div>
+          )}
         </div>
       </>
     );

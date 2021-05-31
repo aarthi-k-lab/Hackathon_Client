@@ -137,96 +137,98 @@ class Booking extends Component {
   };
 
   render() {
-    const {
-      theatre,
-      totalSeats,
-      showtime,
-      onback,
-      bookDate,
-      booked,
-      user,
-    } = this.props;
+    const { theatre, totalSeats, showtime, onback, bookDate, booked, user } =
+      this.props;
     return (
       <>
         {this.state.bookconfirmflag == false ? (
           <>
             <br></br>
-            <div className="row">
-              <div className="col-1">
-                <button
-                  className="btn btn-danger btn-lg movieListBtn btn-outline-warning"
-                  data-toggle="button"
-                  aria-pressed="false"
-                  autoComplete="off"
-                  onClick={() => this.handleBack()}
-                >
-                  Back
-                </button>
-              </div>
+            <div className="col-12">
               <div
-                className="bookHeader col-2"
+                className="row"
                 style={{
-                  backgroundColor: "rgb(23, 162, 184)",
-                  paddingTop: "10px",
-                  margin: "5px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                <h5 className="noOfTicket">No Of Tickets: {totalSeats}</h5>
-                <br></br>
-                <h5 className="showTime">ShowTime: {showtime.startAt}</h5>
-                <br></br>
-                <h5 className="showTime">Book on: {bookDate}</h5>
-              </div>
-              <div className="bookBody col-9">
-                <ul className="showcase">
-                  <li>
-                    <div className="seat"></div>
-                    <small>N/A</small>
-                  </li>
-                  <li>
-                    <div className="seat selected"></div>
-                    <small>Selected</small>
-                  </li>
-                  <li>
-                    <div className="seat occupied"></div>
-                    <small>Occupied</small>
-                  </li>
-                </ul>
-                <div className="container">
-                  <div className="screen"></div>
-                  {theatre.seats.map((seatrow, index1) => {
-                    return (
-                      <div className="row">
-                        {seatrow.map((seat, index2) => {
-                          return (
-                            <Seat
-                              key={index1 + index2}
-                              seat={seat}
-                              onSelect={this.handleSelect}
-                              index1={index1}
-                              index2={index2}
-                              showtime={showtime}
-                              bookDate={bookDate}
-                            ></Seat>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
-                  <br></br>
+                <div className="col-12 col-md-1">
                   <button
-                    className="btn btn-success"
+                    className="btn btn-danger btn-lg movieListBtn btn-outline-warning"
                     data-toggle="button"
                     aria-pressed="false"
                     autoComplete="off"
-                    onClick={() => this.handleBook()}
+                    onClick={() => this.handleBack()}
                   >
-                    Book Now
+                    Back
                   </button>
+                </div>
+                <div
+                  className="bookHeader col-12 col-md-4"
+                  style={{
+                    marginTop: "15px",
+                    backgroundColor: "rgb(23, 162, 184)",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h5 className="noOfTicket">No Of Tickets: {totalSeats}</h5>
+                  <br></br>
+                  <h5 className="showTime">ShowTime: {showtime.startAt}</h5>
+                  <br></br>
+                  <h5 className="showTime">Book on: {bookDate}</h5>
+                </div>
+                <div className="bookBody col-9">
+                  <ul className="showcase">
+                    <li>
+                      <div className="seat"></div>
+                      <small>N/A</small>
+                    </li>
+                    <li>
+                      <div className="seat selected"></div>
+                      <small>Selected</small>
+                    </li>
+                    <li>
+                      <div className="seat occupied"></div>
+                      <small>Occupied</small>
+                    </li>
+                  </ul>
+                  <div className="container">
+                    <div className="screen"></div>
+                    {theatre.seats.map((seatrow, index1) => {
+                      return (
+                        <div className="row">
+                          {seatrow.map((seat, index2) => {
+                            return (
+                              <Seat
+                                key={index1 + index2}
+                                seat={seat}
+                                onSelect={this.handleSelect}
+                                index1={index1}
+                                index2={index2}
+                                showtime={showtime}
+                                bookDate={bookDate}
+                              ></Seat>
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
+                    <br></br>
+                    <button
+                      className="btn btn-success"
+                      data-toggle="button"
+                      aria-pressed="false"
+                      autoComplete="off"
+                      onClick={() => this.handleBook()}
+                    >
+                      Book Now
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

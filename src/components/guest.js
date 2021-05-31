@@ -32,36 +32,34 @@ class Guest extends Component {
     return (
       <>
         <br></br>
-        <div className="BookATick container-fluid">
-          <div className="row">
-            <div className="col-12">
-              <h1 style={{ textAlign: "center" }}>Book A Tick</h1>
-            </div>
+        <div className="BookATick row">
+          <div className="col-12">
+            <h1 style={{ textAlign: "center" }}>Book A Tick</h1>
           </div>
-          <div className="row">
-            <div className="col-12">
-              <h3 style={{ textAlign: "center" }}>
-                Welcome to Book- A -Tick Website
-              </h3>
-            </div>
+          <div className="col-12">
+            <h3 style={{ textAlign: "center" }}>
+              Welcome to Book- A -Tick Website
+            </h3>
           </div>
-          <div className="row">
-            <div className="col-12">
-              <h6 style={{ textAlign: "center" }}>Booking made easy</h6>
-            </div>
+          <div className="col-12">
+            <h6 style={{ textAlign: "center" }}>Booking made easy</h6>
           </div>
 
           {this.state.detailFlag == false ? (
-            <div className="row">
-              {this.state.movies.length > 0 ? (
-                this.state.movies.map((movie, index) => (
-                  <div key={index} className="col-sm-3">
-                    <ViewMovie movie={movie} onView={this.handleView} />
-                  </div>
-                ))
-              ) : (
-                <div>Sorry there is no movies at present</div>
-              )}
+            <div className="col-12">
+              <div className="row">
+                {this.state.movies.length > 0 ? (
+                  this.state.movies.map((movie, index) => (
+                    <ViewMovie
+                      key={index}
+                      movie={movie}
+                      onView={this.handleView}
+                    />
+                  ))
+                ) : (
+                  <div>Sorry there is no movies at present</div>
+                )}
+              </div>
             </div>
           ) : (
             <MovieDetails

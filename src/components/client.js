@@ -14,13 +14,13 @@ class Client extends Component {
         <div className="container-fluid clientNavbar">
           <br></br>
           <div className="row">
-            <div className="col-4">
+            <div className="col-12 col-sm-4">
               <h3 className="welcomeText">Welcome {user.username}</h3>
             </div>
-            <div className="col-4">
+            <div className="col-12 col-sm-4">
               <h3 className="role">Role: {user.role}</h3>
             </div>
-            <div className="col-4">
+            <div className="col-12 col-sm-4">
               <button className="btn btn-danger" onClick={onLogOut}>
                 LogOut
               </button>

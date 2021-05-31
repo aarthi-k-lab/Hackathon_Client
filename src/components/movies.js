@@ -164,45 +164,42 @@ class Movies extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <br></br>
-        <div className="row">
-          <div className="col-2">
-            <button
-              onClick={() =>
-                this.setState({
-                  addFlag: this.state.addFlag == true ? false : true,
-                })
-              }
-            >
-              <img
-                src="https://www.sanadig.com/img/add.png"
-                alt="addMovie"
-                length="100"
-                width="100"
-              ></img>
-            </button>
-          </div>
-          {this.state.addFlag == true ? (
-            <AddMovie onAdding={this.handleAdding} />
-          ) : (
-            <></>
-          )}
-          {this.state.movies.length > 0 ? (
-            this.state.movies.map((movie, index) => (
-              <div key={index} className="col-sm-4">
-                <Movie
-                  key={index}
-                  movie={movie}
-                  onDeleting={this.handleDelete}
-                  onSave={this.handleSave}
-                />
-              </div>
-            ))
-          ) : (
-            <div>Sorry there is no movies at present</div>
-          )}
+      <div className="row">
+        <div className="col-2">
+          <button
+            onClick={() =>
+              this.setState({
+                addFlag: this.state.addFlag == true ? false : true,
+              })
+            }
+          >
+            <img
+              src="https://www.sanadig.com/img/add.png"
+              alt="addMovie"
+              length="100"
+              width="100"
+            ></img>
+          </button>
         </div>
+        {this.state.addFlag == true ? (
+          <AddMovie onAdding={this.handleAdding} />
+        ) : (
+          <></>
+        )}
+        {this.state.movies.length > 0 ? (
+          this.state.movies.map((movie, index) => (
+            <div key={index} className="col-sm-4">
+              <Movie
+                key={index}
+                movie={movie}
+                onDeleting={this.handleDelete}
+                onSave={this.handleSave}
+              />
+            </div>
+          ))
+        ) : (
+          <div>Sorry there is no movies at present</div>
+        )}
       </div>
     );
   }

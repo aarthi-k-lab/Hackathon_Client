@@ -96,8 +96,8 @@ class LoginForm extends Component {
   render() {
     return (
       <>
-        <div className="container-fluid loginForm">
-          <form className="container-fluid loginUser" onSubmit={this.onTrigger}>
+        <div className="row loginForm">
+          <form className="col-12 loginUser" onSubmit={this.onTrigger}>
             <div className="row">
               <div className="userEmailId col-6">
                 <label htmlFor="email">User Email</label>
@@ -136,7 +136,7 @@ class LoginForm extends Component {
             </div>
             <br></br>
             <div className="row">
-              <div className="col-6">
+              <div className="col-6 col-sm-5 col-md-5 col-lg-5">
                 <button
                   className="btn btn-success btn-outline-light btn-lg"
                   type="submit"
@@ -149,11 +149,18 @@ class LoginForm extends Component {
               </div>
             </div>
           </form>
-          <br></br>
-          <div className="row">
-            <div className="col-6">
+          <div
+            className="col-12"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "15px",
+            }}
+          >
+            <div className="row">
               <button
-                className="btn btn-danger btn-outline-light btn-lg"
+                className="col-12  btn btn-danger btn-outline-light btn-lg btn-block"
                 data-toggle="button"
                 aria-pressed="false"
                 autoComplete="off"
@@ -161,7 +168,6 @@ class LoginForm extends Component {
               >
                 Forget Password?
               </button>
-              <div className="col-6"></div>
             </div>
           </div>
           <br></br>
@@ -183,17 +189,18 @@ class LoginForm extends Component {
                     }
                   />
                 </div>
+                <button
+                  className=" btn btn-info btn-outline-light "
+                  data-toggle="button"
+                  aria-pressed="false"
+                  autoComplete="off"
+                  onClick={() => this.handleSendOTP()}
+                  style={{ marginTop: "15px" }}
+                >
+                  Send OTP to Mail
+                </button>
               </div>
               <br></br>
-              <button
-                className=" btn btn-info btn-outline-light"
-                data-toggle="button"
-                aria-pressed="false"
-                autoComplete="off"
-                onClick={() => this.handleSendOTP()}
-              >
-                Send OTP to Mail
-              </button>
             </>
           ) : this.state.setNewPasswordFlag == true ? (
             <>

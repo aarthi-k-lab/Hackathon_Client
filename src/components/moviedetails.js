@@ -140,7 +140,7 @@ class MovieDetails extends Component {
     return (
       <>
         {this.state.bookFlag == false ? (
-          <div className="movieDetails">
+          <div className="movieDetails col-12">
             <hr></hr>
             <div className="row">
               <div className="col-sm-4">
